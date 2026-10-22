@@ -80,7 +80,13 @@
    x 61 on desktop, 67 against 48 on mobile). Zero specificity so a list's
    own layout (Home's two-column list) can override it. */
 :where(.panel > ul) {
-  padding-left: 1.2em;
+  padding-left: calc(1.2 * var(--fs-lead)); /* in paragraph units, as drawn */
+}
+
+/* Tick-list links one step below the panel paragraph (lead to body),
+   per Steve. */
+.panel > ul {
+  font-size: var(--fs-body);
 }
 
 .aside {

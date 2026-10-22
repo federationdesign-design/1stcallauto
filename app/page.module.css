@@ -78,15 +78,15 @@
 }
 
 .savedMeMoney {
-  --tail-x: 69%;
+  --tail-pos: 0.69;
 }
 
 .waterCorrosion {
-  --tail-x: 54%;
+  --tail-pos: 0.54;
 }
 
 .carAlarm {
-  --tail-x: 71%;
+  --tail-pos: 0.71;
   margin-inline: 0.75rem;
 }
 
@@ -112,7 +112,7 @@
     grid-column: 3 / 6;
     margin-top: 2.45vw;
     z-index: 1;
-    --tail-x: 68%;
+    --tail-pos: 0.68;
   }
 
   /* Its text stops short of the overlapping Saved me money bubble (x 548
@@ -121,14 +121,14 @@
     grid-column: 2 / 4;
     margin-top: 15.78vw;
     padding-right: calc(10.42vw + var(--space-s));
-    --tail-x: 54%;
+    --tail-pos: 0.54;
   }
 
   .carAlarm {
     grid-column: 5 / 7;
     margin-top: 6.25vw;
     margin-inline: 0;
-    --tail-x: 29%;
+    --tail-pos: 0.29;
   }
 }
 

@@ -19,7 +19,7 @@
 }
 
 .bubble {
-  --tail-x: 65%;
+  --tail-pos: 0.65;
 }
 
 .attribution {
@@ -56,6 +56,6 @@
 
   /* Tails alternate sides so the two columns do not mirror each other. */
   .bubble:nth-child(odd) {
-    --tail-x: 30%;
+    --tail-pos: 0.3;
   }
 }

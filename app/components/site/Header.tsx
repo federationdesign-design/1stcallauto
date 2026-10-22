@@ -3,7 +3,9 @@
 // Site header. Sits over the top of the page hero.
 // Mobile: centred logo and a hamburger that opens a full-screen menu, with
 // Services as an expandable list. Desktop (1024px and up): the top strip with
-// the phone number, the logo and the pill navigation with a Services dropdown.
+// the phone number, the logo and the pill navigation. Services links
+// straight to /services there, with no dropdown (Steve); "Services" stays
+// highlighted on the three specialist pages.
 
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
@@ -66,7 +68,7 @@ export function Header() {
         <nav aria-label="Main" className={styles.desktopNav}>
           <ul className={styles.pill}>
             {HEADER_NAV.map((item) => (
-              <li key={item.href} className={item.children ? styles.hasDropdown : undefined}>
+              <li key={item.href}>
                 <Link
                   href={item.href}
                   className={isInSection(item, pathname) ? styles.current : undefined}
@@ -74,21 +76,6 @@ export function Header() {
                 >
                   {item.label}
                 </Link>
-                {item.children && (
-                  <ul className={styles.dropdown}>
-                    {item.children.map((child) => (
-                      <li key={child.href}>
-                        <Link
-                          href={child.href}
-                          className={isCurrent(child.href, pathname) ? styles.current : undefined}
-                          aria-current={isCurrent(child.href, pathname) ? 'page' : undefined}
-                        >
-                          {child.label}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                )}
               </li>
             ))}
           </ul>

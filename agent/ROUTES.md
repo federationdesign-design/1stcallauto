@@ -25,7 +25,7 @@ Footer (from the mockups): Home, About Us, Services, Testimonials, Find Us, Get 
 
 | Item | Target |
 |---|---|
-| Services | `/services`, with the three specialist pages beneath it: a dropdown on desktop, an expandable list in the mobile menu |
+| Services | `/services`. Desktop: a plain link, no dropdown (Steve, 22 October 2026). Mobile menu: an expandable list of the three specialist pages |
 | Find Us | `/contact#location` |
 | Get a free quote (footer) | `/contact#quote` |
 

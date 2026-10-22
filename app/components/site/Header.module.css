@@ -284,39 +284,4 @@
   .pill .current {
     font-weight: 700;
   }
-
-  /* Services dropdown: opens on hover and when focus is inside it, so it
-     works with a mouse and the keyboard. */
-  .dropdown {
-    list-style: none;
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    min-width: max-content;
-    padding: var(--space-xs) 0;
-    border-radius: 20px;
-    background: var(--cream);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    opacity: 0;
-    visibility: hidden;
-    transform: translate(-50%, 6px);
-    transition: opacity 0.15s ease, transform 0.15s ease, visibility 0.15s;
-  }
-
-  .hasDropdown:hover .dropdown,
-  .hasDropdown:focus-within .dropdown {
-    opacity: 1;
-    visibility: visible;
-    transform: translate(-50%, 0);
-  }
-
-  .dropdown a {
-    padding: var(--space-xs) var(--space-m);
-  }
-}
-
-@media (min-width: 1024px) and (prefers-reduced-motion: reduce) {
-  .dropdown {
-    transition: none;
-  }
 }

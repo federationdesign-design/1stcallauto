@@ -2,8 +2,10 @@
    22 October 2026). Desktop matches the mockup: 160px at x 1700, y 56 on
    the 1920 mockup. Mobile sits just below the hamburger, which owns the
    top-right corner there. 72px at 430 up to 160px at 1920.
-   Sits under the header (50) so the mobile menu covers it, and under the
-   cookie banner (1000). */
+   Mobile: under the header (50) so the open mobile menu covers it.
+   Desktop: above the header (55). The header bar spans the full width and
+   is transparent, so at 45 the button showed through it but sat under
+   it. Always under the cookie banner (1000). */
 .button {
   position: fixed;
   top: 6rem;
@@ -33,6 +35,7 @@
   .button {
     top: 2.92vw;
     right: 3.125vw;
+    z-index: 55;
   }
 }
 

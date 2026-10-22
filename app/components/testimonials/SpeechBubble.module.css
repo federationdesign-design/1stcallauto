@@ -1,13 +1,20 @@
 /* Speech bubble: stretched SVG body, fixed-size tail under it with its apex
-   at --tail-x across the bubble (65% unless the page sets it, as on the
-   hero bubble: apex x 347 of 533), and the avatar centred under the apex.
+   at --tail-pos across the bubble (a fraction, 0.65 unless the page sets
+   it), and the avatar centred under the apex.
+   The body's bottom edge slopes (traced from the mockup: y 451.1 at x 52.9
+   down to y 421.9 at x 503 of 533 x 453) and stretches with the text, so
+   the tail's top is placed on that edge at the tail's own position
+   (--edge, a fraction of the bubble height) and tucked a little way up
+   inside the body. Tail and body share a fill, so the join has no gap or
+   seam at any bubble height.
    The figure reserves room below itself for the tail and avatar, so the
    next element's gap starts below the avatar. */
 
 .bubble {
   --tail-w: clamp(3.5rem, 3.23rem + 1vw, 5rem);
   --tail-h: calc(var(--tail-w) * 95 / 80);
-  --tail-tuck: 1.25rem; /* how far the tail's top sits up inside the body */
+  --tail-tuck: 0.6rem; /* covers the edge's slope across the tail's width */
+  --edge: calc((451.1 - (533 * var(--tail-pos, 0.65) - 52.9) * 29.2 / 450.1) / 453);
   --avatar-size: clamp(6.25rem, 5.6rem + 1.6vw, 9rem);
   --avatar-gap: var(--space-2xs);
 
@@ -25,8 +32,8 @@
 
 .tail {
   position: absolute;
-  left: calc(var(--tail-x, 65%) - var(--tail-w) * 35 / 80);
-  top: calc(100% - var(--tail-tuck));
+  left: calc(var(--tail-pos, 0.65) * 100% - var(--tail-w) * 35 / 80);
+  top: calc(var(--edge) * 100% - var(--tail-tuck));
   width: var(--tail-w);
   height: var(--tail-h);
 }
@@ -77,8 +84,8 @@
 /* Centred on the tail apex. */
 .avatar {
   position: absolute;
-  top: calc(100% - var(--tail-tuck) + var(--tail-h) + var(--avatar-gap));
-  left: var(--tail-x, 65%);
+  top: calc(var(--edge) * 100% - var(--tail-tuck) + var(--tail-h) + var(--avatar-gap));
+  left: calc(var(--tail-pos, 0.65) * 100%);
   width: var(--avatar-size);
   height: var(--avatar-size);
   border-radius: 50%;
