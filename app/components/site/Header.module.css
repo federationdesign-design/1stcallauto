@@ -1,5 +1,5 @@
 /* Site header, laid over the top of the hero image.
-   Mobile first (from the About mobile mockup): centred logo, hamburger at
+   Mobile first (from the About mobile mockup): centred logo, menu button at
    the right, no phone strip. Desktop from 1024px (the desktop mockups):
    phone strip, logo at the left and the cream pill navigation.
    Desktop measurements are converted from the 1920px mockup to vw. */
@@ -48,10 +48,12 @@
   display: none;
 }
 
-/* ── Hamburger ─────────────────────────────── */
+/* ── Menu button ───────────────────────────── */
 
+/* Above the open menu (100), so the same button closes it. */
 .menuButton {
   position: absolute;
+  z-index: 101;
   right: var(--gutter);
   top: 50%;
   transform: translateY(-50%);
@@ -60,34 +62,109 @@
   height: 44px;
   display: grid;
   place-items: center;
+  padding: 0;
   background: none;
   border: none;
   cursor: pointer;
 }
 
-.burger,
-.burger::before,
-.burger::after {
+/* Three white rounded bars that become crossed spanners when the menu is
+   open (MenuIcon in Header.tsx, a 44px grid). The middle bar slides left and
+   fades; the outer bars meet at the centre and turn +45 and -45 degrees,
+   their shafts shorten a little, and each grows a jaw at one end and a ring
+   at the other. 300ms ease, instant with reduced motion. */
+.menuIcon {
   display: block;
-  width: 36px;
-  height: 6px;
-  border-radius: 3px;
-  background: var(--white);
+  width: 44px;
+  height: 44px;
+  overflow: visible;
 }
-.burger {
-  position: relative;
+
+.shaft,
+.middleBar {
+  fill: var(--white);
 }
-.burger::before,
-.burger::after {
-  content: '';
-  position: absolute;
-  left: 0;
+
+.jaw {
+  fill: none;
+  stroke: var(--white);
+  stroke-width: 4;
 }
-.burger::before {
-  top: -12px;
+
+.ring {
+  fill: none;
+  stroke: var(--white);
+  stroke-width: 3;
 }
-.burger::after {
-  top: 12px;
+
+.spannerTop,
+.spannerBottom,
+.shaft,
+.jaw,
+.ring,
+.middleBar {
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+}
+
+/* Each outer bar turns about its own centre after moving to the middle. */
+.spannerTop {
+  transform-origin: 22px 10px;
+}
+.spannerBottom {
+  transform-origin: 22px 34px;
+}
+
+.shaft,
+.ring {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+/* Jaws scale from the centre of their C. */
+.spannerTop .jaw {
+  transform-origin: 6px 10px;
+}
+.spannerBottom .jaw {
+  transform-origin: 38px 34px;
+}
+
+.jaw,
+.ring {
+  opacity: 0;
+  transform: scale(0);
+}
+
+.menuButton[aria-expanded='true'] .spannerTop {
+  transform: translateY(12px) rotate(45deg);
+}
+.menuButton[aria-expanded='true'] .spannerBottom {
+  transform: translateY(-12px) rotate(-45deg);
+}
+/* Shorter shafts so the jaw mouths and ring holes stay open. */
+.menuButton[aria-expanded='true'] .shaft {
+  transform: scaleX(0.72);
+}
+.menuButton[aria-expanded='true'] .jaw,
+.menuButton[aria-expanded='true'] .ring {
+  opacity: 1;
+  transform: scale(1);
+}
+.menuButton[aria-expanded='true'] .middleBar {
+  opacity: 0;
+  transform: translateX(-12px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spannerTop,
+  .spannerBottom,
+  .shaft,
+  .jaw,
+  .ring,
+  .middleBar {
+    transition: none;
+  }
 }
 
 /* ── Mobile menu ───────────────────────────── */
@@ -103,20 +180,6 @@
 }
 .mobileMenu[hidden] {
   display: none;
-}
-
-.closeButton {
-  position: absolute;
-  top: var(--space-s);
-  right: var(--gutter);
-  width: 44px;
-  height: 44px;
-  background: none;
-  border: none;
-  color: var(--white);
-  font-size: 2.5rem;
-  line-height: 1;
-  cursor: pointer;
 }
 
 .mobileList {
@@ -175,7 +238,6 @@
 
 /* No grey-blue flash on tap; the focus ring still shows for keyboards. */
 .menuButton,
-.closeButton,
 .expand {
   -webkit-tap-highlight-color: transparent;
 }
