@@ -40,6 +40,8 @@
   --fs-quote:      clamp(2.375rem, 2.1225rem + 0.9396vw, 3.7668rem);
   --fs-display:    clamp(1.875rem, 1.3339rem + 2.0134vw, 4.8574rem);
   --fs-nav:        clamp(1rem, 0.8557rem + 0.5369vw, 1.7953rem);
+  --fs-faq-q:      clamp(1.375rem, 1.2848rem + 0.3356vw, 1.872rem);
+  --fs-faq-a:      clamp(1.125rem, 0.9808rem + 0.5369vw, 1.92rem);
 
   /* Spacing scale */
   --space-2xs:  clamp(0.25rem, 0.1779rem + 0.2685vw, 0.6477rem);

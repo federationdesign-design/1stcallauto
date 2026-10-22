@@ -1,6 +1,7 @@
 // List with round tick icons, as used in the hero panels ("Get a free
 // estimate") and the service cards. Items can be plain text or links.
 
+import type { CSSProperties } from 'react';
 import Link from 'next/link';
 import styles from './TickList.module.css';
 
@@ -9,12 +10,19 @@ export type TickItem = { label: string; href?: string };
 type Props = {
   items: TickItem[];
   tone?: 'onGreen' | 'onLight'; // white ticks on the green panel, green ticks on cream or white
+  splitOnDesktop?: boolean; // two columns from 1440px, filled top to bottom (Home hero)
   className?: string;
 };
 
-export function TickList({ items, tone = 'onLight', className }: Props) {
+export function TickList({ items, tone = 'onLight', splitOnDesktop = false, className }: Props) {
+  const classes = [styles.list, styles[tone], splitOnDesktop && styles.split, className];
+  const rows = Math.ceil(items.length / 2);
+
   return (
-    <ul className={`${styles.list} ${styles[tone]} ${className ?? ''}`}>
+    <ul
+      className={classes.filter(Boolean).join(' ')}
+      style={splitOnDesktop ? ({ '--rows': rows } as CSSProperties) : undefined}
+    >
       {items.map((item) => (
         <li key={item.label} className={styles.item}>
           <TickIcon />

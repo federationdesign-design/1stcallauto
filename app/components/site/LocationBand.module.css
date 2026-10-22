@@ -1,6 +1,7 @@
 /* Our Location: dark green heading band over a full-width map.
-   Map area keeps the mockup proportions: 430 x 530 on mobile, 1920 x 1030
-   on desktop. */
+   Once loaded, the map keeps the mockup proportions: 430 x 530 on mobile,
+   1920 x 1030 on desktop. Before consent the placeholder panel is only as
+   tall as its content. */
 
 .band {
   background: var(--green);
@@ -20,6 +21,10 @@
   background: var(--cream);
 }
 
+.mapPending {
+  background: var(--cream);
+}
+
 /* The mockup map is greyscale. */
 .frame {
   position: absolute;
@@ -31,14 +36,12 @@
 }
 
 .placeholder {
-  position: absolute;
-  inset: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: var(--space-m);
-  padding: var(--space-l) var(--gutter);
+  padding: var(--space-xl) var(--gutter);
   color: var(--green);
   text-align: center;
 }

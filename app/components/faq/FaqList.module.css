@@ -1,0 +1,50 @@
+/* FAQ cards. Mobile (430 mockups): cards 400 wide with a 1px grey edge and
+   about 45px corners, question 22px bold, answer 18px. Desktop (1920):
+   cards 832 wide, question 27px, answer 26px indented 32px, about 30px
+   between cards. */
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-s);
+}
+
+.column + .column {
+  margin-top: var(--space-s);
+}
+
+.card {
+  padding: var(--space-m) var(--space-m) var(--space-l);
+  background: var(--white);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-card);
+}
+
+.question {
+  font-size: var(--fs-faq-q);
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.answer {
+  margin-top: var(--space-s);
+  font-size: var(--fs-faq-a);
+  line-height: 1.3;
+}
+
+@media (min-width: 1024px) {
+  .twoColumns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+    column-gap: 2.3vw;
+  }
+
+  .twoColumns .column + .column {
+    margin-top: 0;
+  }
+
+  .answer {
+    padding-left: 1.7vw;
+  }
+}

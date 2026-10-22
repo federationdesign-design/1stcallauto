@@ -2,8 +2,9 @@
 
 // "Our Location" band, shown above the footer on every page.
 // The Google Maps embed loads only after the visitor allows Maps cookies.
-// Until then a placeholder panel shows the address, a "Load map" button that
-// opens the cookie choice, and a plain "Get directions" link to Google Maps.
+// Until then a shorter placeholder panel shows the address, a "Load map"
+// button that opens the cookie choice, and a plain "Get directions" link to
+// Google Maps. The band expands to the drawn map size once the map loads.
 
 import { useCookieConsent } from '../cookies/CookieConsentProvider';
 import { ADDRESS_LINES, DIRECTIONS_HREF, MAP_EMBED_SRC } from '../../lib/site';
@@ -18,12 +19,12 @@ export function LocationBand() {
         Our Location
       </h2>
 
-      <div className={styles.map}>
+      <div className={consent?.maps ? styles.map : styles.mapPending}>
         {consent?.maps ? (
           <iframe
             className={styles.frame}
             src={MAP_EMBED_SRC}
-            title="Map showing 1st Call Auto in Chawston"
+            title="Map showing 1st Call Auto at The Old Foundry, Chawston"
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
           />

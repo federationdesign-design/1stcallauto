@@ -1,4 +1,7 @@
 .list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2em;
   list-style: none;
 }
 
@@ -6,10 +9,6 @@
   display: flex;
   align-items: center;
   gap: 0.6em;
-}
-
-.item + .item {
-  margin-top: 0.2em;
 }
 
 .icon {
@@ -25,18 +24,23 @@
   stroke-linejoin: round;
 }
 
-.onGreen .circle {
-  fill: var(--white);
+/* Colours come from custom properties so a page can recolour a TickIcon
+   (About's reasons list has cream ticks). */
+.circle {
+  fill: var(--tick-circle, var(--green));
 }
-.onGreen .check {
-  stroke: var(--green);
+.check {
+  stroke: var(--tick-check, var(--white));
 }
 
-.onLight .circle {
-  fill: var(--green);
+.onGreen {
+  --tick-circle: var(--white);
+  --tick-check: var(--green);
 }
-.onLight .check {
-  stroke: var(--white);
+
+.onLight {
+  --tick-circle: var(--green);
+  --tick-check: var(--white);
 }
 
 .link {
@@ -45,4 +49,19 @@
 }
 .link:hover {
   text-decoration-thickness: 2px;
+}
+
+/* Two columns, filled top to bottom (3 + 2 on the Home hero), level with
+   the paragraph above rather than indented, as drawn. From 1440px only:
+   below that the hero panel is too narrow for two columns at this type
+   size, so the list stays in one. */
+@media (min-width: 1440px) {
+  .split {
+    display: grid;
+    grid-template-rows: repeat(var(--rows), auto);
+    grid-auto-flow: column;
+    justify-content: start;
+    column-gap: 2.5em;
+    padding-left: 0;
+  }
 }

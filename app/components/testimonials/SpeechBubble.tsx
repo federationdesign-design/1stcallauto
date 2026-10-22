@@ -15,15 +15,28 @@ const BODY =
 // The top of the tail tucks up inside the body; the apex is at x 35 of 80.
 const TAIL = 'M0 0 L80 0 L35 95Z';
 
+type Tone = 'green' | 'sage' | 'white';
+
+const DESKTOP_TONE: Record<Tone, string> = {
+  green: styles.desktopGreen,
+  sage: styles.desktopSage,
+  white: styles.desktopWhite,
+};
+
 type Props = {
   testimonial: Testimonial;
-  tone?: 'green' | 'sage' | 'white';
+  tone?: Tone;
+  desktopTone?: Tone; // from 1024px, when it differs from the mobile tone
+  headingLevel?: 'p' | 'h3'; // h3 where the bubbles sit under a section heading
   className?: string;
 };
 
-export function SpeechBubble({ testimonial, tone = 'green', className }: Props) {
+export function SpeechBubble({ testimonial, tone = 'green', desktopTone, headingLevel = 'p', className }: Props) {
+  const Heading = headingLevel;
+  const classes = [styles.bubble, styles[tone], desktopTone && DESKTOP_TONE[desktopTone], className];
+
   return (
-    <figure className={`${styles.bubble} ${styles[tone]} ${className ?? ''}`}>
+    <figure className={classes.filter(Boolean).join(' ')}>
       <svg className={styles.body} viewBox="0 0 533 453" preserveAspectRatio="none" aria-hidden="true">
         <path d={BODY} />
       </svg>
@@ -31,7 +44,7 @@ export function SpeechBubble({ testimonial, tone = 'green', className }: Props) 
         <path d={TAIL} />
       </svg>
       <blockquote className={styles.quote}>
-        <p className={styles.heading}>{testimonial.heading}</p>
+        <Heading className={styles.heading}>{testimonial.heading}</Heading>
         {testimonial.body.map((paragraph) => (
           <p key={paragraph} className={styles.text}>
             {paragraph}

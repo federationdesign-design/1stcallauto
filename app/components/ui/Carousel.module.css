@@ -1,0 +1,78 @@
+/* Mobile carousel: one slide per view, scroll-snap, dots below.
+   Dots as drawn on the 430 mockups: about 20px, green ring, the current
+   one filled, about 10px apart. Each dot has a 44px tap target. */
+
+.track {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+  list-style: none;
+}
+
+.track::-webkit-scrollbar {
+  display: none;
+}
+
+.slide {
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+}
+
+.dots {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: var(--space-xs);
+}
+
+.dot {
+  position: relative;
+  width: 1.9rem;
+  height: 2.75rem;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.dot::before {
+  content: '';
+  position: absolute;
+  inset: 50% auto auto 50%;
+  width: 1.15rem;
+  height: 1.15rem;
+  border: 3px solid var(--green);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.dot[aria-current='true']::before {
+  background: var(--green);
+}
+
+.dot:focus-visible {
+  outline: none;
+}
+.dot:focus-visible::before {
+  outline: 3px solid var(--green);
+  outline-offset: 3px;
+}
+
+/* Desktop: the page sets the track's display and layout through
+   trackClassName; this only switches the scrolling off. */
+@media (min-width: 1024px) {
+  .track {
+    overflow: visible;
+    scroll-snap-type: none;
+  }
+
+  .slide {
+    flex: none;
+  }
+
+  .dots {
+    display: none;
+  }
+}

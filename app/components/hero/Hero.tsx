@@ -1,9 +1,12 @@
 'use client';
 
 // Page hero: full-bleed photo with the page title, the green text panel and
-// an optional aside (the testimonial bubble on inner pages).
+// an optional aside (the testimonial bubble on inner pages, the large logo
+// on Home).
 // Mobile: photo with the title over it, then the panel below; no aside.
 // Desktop (1024px and up): the panel and aside overlap the photo, as drawn.
+// The "home" variant has the taller Home photo, the title bottom right and
+// the aside set to the panel's lower edge.
 // The photo fades out as the page scrolls (see useHeroFade).
 
 import { useRef, type ReactNode } from 'react';
@@ -19,12 +22,13 @@ export type HeroImage = {
 
 type Props = {
   image: HeroImage;
-  title: string;
+  title: ReactNode;
   children: ReactNode; // green panel content
   aside?: ReactNode; // desktop only
+  variant?: 'inner' | 'home';
 };
 
-export function Hero({ image, title, children, aside }: Props) {
+export function Hero({ image, title, children, aside, variant = 'inner' }: Props) {
   const mediaRef = useRef<HTMLDivElement>(null);
   const fadeRef = useRef<HTMLDivElement>(null);
   useHeroFade(mediaRef, fadeRef);
@@ -38,7 +42,7 @@ export function Hero({ image, title, children, aside }: Props) {
   } = getImageProps({ ...common, ...image.mobile });
 
   return (
-    <section className={styles.hero}>
+    <section className={`${styles.hero} ${variant === 'home' ? styles.home : ''}`}>
       <div ref={mediaRef} className={styles.media}>
         <picture>
           <source media="(min-width: 768px)" srcSet={desktopSrcSet} />

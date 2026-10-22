@@ -1,5 +1,6 @@
-/* Speech bubble: stretched SVG body, fixed-size tail under it at 62% across
-   (x 330 of 533 on the mockup), and the avatar centred under the tail apex.
+/* Speech bubble: stretched SVG body, fixed-size tail under it with its apex
+   at --tail-x across the bubble (65% unless the page sets it, as on the
+   hero bubble: apex x 347 of 533), and the avatar centred under the apex.
    The figure reserves room below itself for the tail and avatar, so the
    next element's gap starts below the avatar. */
 
@@ -24,7 +25,7 @@
 
 .tail {
   position: absolute;
-  left: 62%;
+  left: calc(var(--tail-x, 65%) - var(--tail-w) * 35 / 80);
   top: calc(100% - var(--tail-tuck));
   width: var(--tail-w);
   height: var(--tail-h);
@@ -72,14 +73,39 @@
   margin-top: 1.35em;
 }
 
-/* Centred on the tail apex: tail left + 35/80 of its width. */
+/* Centred on the tail apex. */
 .avatar {
   position: absolute;
   top: calc(100% - var(--tail-tuck) + var(--tail-h) + var(--avatar-gap));
-  left: calc(62% + var(--tail-w) * 35 / 80);
+  left: var(--tail-x, 65%);
   width: var(--avatar-size);
   height: var(--avatar-size);
   border-radius: 50%;
   object-fit: cover;
   transform: translateX(-50%);
+}
+
+/* Optional tone from 1024px (the car alarm bubble is green on the mobile
+   Home mockup and white on desktop). */
+@media (min-width: 1024px) {
+  .desktopGreen path {
+    fill: var(--green);
+  }
+  .desktopGreen {
+    color: var(--white);
+  }
+
+  .desktopSage path {
+    fill: var(--sage);
+  }
+  .desktopSage {
+    color: var(--white);
+  }
+
+  .desktopWhite path {
+    fill: var(--white);
+  }
+  .desktopWhite {
+    color: var(--ink);
+  }
 }

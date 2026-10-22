@@ -1,11 +1,15 @@
-/* 72px at 430 to 112px at 1920. Sits under the header (50) so the mobile
-   menu covers it, and under the cookie banner (1000). */
+/* Floating WhatsApp button, fixed top right on every viewport (Steve,
+   22 October 2026). Desktop matches the mockup: 160px at x 1700, y 56 on
+   the 1920 mockup. Mobile sits just below the hamburger, which owns the
+   top-right corner there. 72px at 430 up to 160px at 1920.
+   Sits under the header (50) so the mobile menu covers it, and under the
+   cookie banner (1000). */
 .button {
   position: fixed;
-  right: clamp(1rem, 0.6rem + 1.2vw, 2.5rem);
-  bottom: clamp(1rem, 0.6rem + 1.2vw, 2.5rem);
+  top: 6rem;
+  right: var(--gutter);
   z-index: 45;
-  width: clamp(4.5rem, 3.779rem + 2.685vw, 8.47rem);
+  width: clamp(4.5rem, 2.9125rem + 5.906vw, 13.25rem);
   aspect-ratio: 1;
   border-radius: 50%;
   overflow: hidden;
@@ -23,6 +27,13 @@
 
 .button:hover {
   transform: scale(1.05);
+}
+
+@media (min-width: 1024px) {
+  .button {
+    top: 2.92vw;
+    right: 3.125vw;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

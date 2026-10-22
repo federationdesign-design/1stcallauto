@@ -5,15 +5,27 @@
    Desktop from 1024px (inner-page desktop mockups, 1920 wide): photo
    1203px tall, panel at x 0 to 728 and y 573 to 1070, testimonial bubble
    from x 1332 at y 510, title centred near the bottom of the photo.
-   Desktop values are those measurements converted to vw. */
+   Desktop values are those measurements converted to vw.
+   Home (.home): photo 430 x 551 on mobile; on desktop 1279px tall, so the
+   title strip under the panel is 209px, the title sits bottom right (ending
+   at x 1787) and the logo aside ends level with the panel at y 1068. */
 
 .hero {
   position: relative;
+  --media-ratio: 430 / 553;
+  --desktop-ratio: 1920 / 1203;
+  --title-row: 6.93vw;
+}
+
+.home {
+  --media-ratio: 430 / 551;
+  --desktop-ratio: 1920 / 1279;
+  --title-row: 10.89vw;
 }
 
 .media {
   position: relative;
-  aspect-ratio: 430 / 553;
+  aspect-ratio: var(--media-ratio);
   overflow: hidden;
   background: var(--green);
 }
@@ -65,8 +77,9 @@
 }
 
 /* Tick lists sit indented from the paragraph, as drawn (x 100 against
-   x 61 on desktop, 67 against 48 on mobile). */
-.panel > ul {
+   x 61 on desktop, 67 against 48 on mobile). Zero specificity so a list's
+   own layout (Home's two-column list) can override it. */
+:where(.panel > ul) {
   padding-left: 1.2em;
 }
 
@@ -76,7 +89,7 @@
 
 @media (min-width: 768px) {
   .media {
-    aspect-ratio: 1920 / 1203;
+    aspect-ratio: var(--desktop-ratio);
   }
 }
 
@@ -84,13 +97,13 @@
    panel or bubble text runs longer than drawn (text is relatively larger
    below 1920px), the rows grow and the photo grows with them instead of the
    text spilling out. Rows: 26.56vw to the bubble top, 3.28vw more to the
-   panel top, the panel (min 25.89vw), then the title strip (min 6.93vw).
-   Total minimum 62.66vw, the drawn photo height. */
+   panel top, the panel (min 25.89vw), then the title strip (min 6.93vw,
+   10.89vw on Home). Total minimum is the drawn photo height. */
 @media (min-width: 1024px) {
   .hero {
     display: grid;
     grid-template-columns: 37.92vw 1fr 27.76vw 2.9vw;
-    grid-template-rows: 26.56vw 3.28vw minmax(25.89vw, auto) minmax(6.93vw, auto);
+    grid-template-rows: 26.56vw 3.28vw minmax(25.89vw, auto) minmax(var(--title-row), auto);
   }
 
   .media {
@@ -122,5 +135,17 @@
     display: block;
     position: relative;
     z-index: 3;
+  }
+
+  .home .title {
+    bottom: 3.1vw;
+    padding-right: 6.93vw;
+    text-align: right;
+  }
+
+  .home .aside {
+    grid-area: 2 / 2 / 4 / 4;
+    align-self: end;
+    justify-self: end;
   }
 }
