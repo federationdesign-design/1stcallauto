@@ -1,0 +1,29 @@
+/* The site header is laid over the top of the page, so the band's top
+   padding clears it: on mobile the logo row and the WhatsApp button under
+   the hamburger (top 6rem, up to 4.5rem wide), and from 1024px the phone
+   strip and navigation pill. The band owns the space below the title. */
+
+.band {
+  --header-clear: 10.5rem;
+  padding: calc(var(--header-clear) + var(--space-xs)) var(--gutter) var(--space-l);
+  background: var(--green);
+  color: var(--white);
+  text-align: center;
+}
+
+.title {
+  font-size: var(--fs-title);
+  font-weight: 500;
+  line-height: 1.1;
+}
+
+.extra {
+  margin-top: var(--space-xs);
+  font-size: var(--fs-body);
+}
+
+@media (min-width: 1024px) {
+  .band {
+    --header-clear: 9vw;
+  }
+}

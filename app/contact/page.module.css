@@ -1,0 +1,193 @@
+/* Contact. No mockup: white cards on cream like the service pages.
+   Mobile: details card, then the form card, full width. Desktop: side by
+   side, the form wider. The layout owns the space around the cards. */
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-s);
+  padding: var(--space-l) 1.05rem var(--space-xl);
+}
+
+.card {
+  padding: var(--space-l) var(--space-m);
+  background: var(--white);
+  border-radius: var(--radius-card);
+  font-size: var(--fs-body);
+  line-height: 1.4;
+  scroll-margin-top: var(--space-m);
+}
+
+.heading {
+  margin-bottom: var(--space-m);
+  font-size: var(--fs-card-title);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* ── Details ────────────────────────────────────────────────── */
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-m);
+}
+
+.list dt {
+  font-weight: 600;
+}
+
+.list a {
+  color: var(--green);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.big {
+  font-size: var(--fs-lead);
+  font-weight: 600;
+}
+
+.address {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: var(--space-2xs);
+  font-style: normal;
+}
+
+.whatsapp {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  margin-top: var(--space-m);
+  font-size: var(--fs-lead);
+  font-weight: 600;
+}
+
+.whatsappIcon {
+  width: clamp(4rem, 3.4rem + 2.2vw, 7.5rem);
+  height: auto;
+  clip-path: circle(48%); /* trims the white corners of the JPG */
+}
+
+/* ── Form ───────────────────────────────────────────────────── */
+
+.form {
+  display: grid;
+  gap: var(--space-s);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+}
+
+.field label {
+  font-weight: 600;
+}
+
+.field input,
+.field textarea {
+  width: 100%;
+  padding: 0.6em 0.8em;
+  border: 1px solid var(--rule);
+  border-radius: 0.5rem;
+  background: var(--white);
+  color: var(--ink);
+  font: inherit;
+}
+
+.field textarea {
+  resize: vertical;
+}
+
+.honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.submitRow {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-xs);
+}
+
+.submit {
+  padding: 0.8em 2.4em;
+  border: 2px solid var(--green);
+  border-radius: 999px;
+  background: var(--green);
+  color: var(--white);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.submit:hover {
+  opacity: 0.85;
+}
+
+.submit:disabled {
+  opacity: 0.6;
+  cursor: progress;
+}
+
+.privacy {
+  font-size: var(--fs-small);
+}
+
+.privacy a {
+  color: var(--green);
+  text-decoration: underline;
+}
+
+.error {
+  color: var(--error);
+  font-weight: 600;
+}
+
+.error:empty {
+  display: none;
+}
+
+.sent {
+  font-size: var(--fs-lead);
+  font-weight: 600;
+  color: var(--green);
+}
+
+@media (min-width: 1024px) {
+  .layout {
+    display: grid;
+    grid-template-columns: 1fr 1.8fr;
+    align-items: start;
+    column-gap: 2.4vw;
+    padding: 3.9vw 5.2vw 5.5vw 6.56vw;
+  }
+
+  .card {
+    padding: 3.4vw 3vw;
+  }
+
+  /* Inputs line up along the bottom when a label wraps to two lines. */
+  .form {
+    grid-template-columns: repeat(2, 1fr);
+    align-items: end;
+    column-gap: var(--space-m);
+  }
+
+  .wide {
+    grid-column: 1 / -1;
+  }
+
+  .submitRow {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-m);
+  }
+}

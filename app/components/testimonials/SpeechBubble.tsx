@@ -51,13 +51,15 @@ export function SpeechBubble({ testimonial, tone = 'green', desktopTone, heading
           </p>
         ))}
       </blockquote>
-      <Image
-        className={styles.avatar}
-        src={testimonial.avatar.src}
-        alt={testimonial.avatar.alt}
-        width={131}
-        height={131}
-      />
+      {testimonial.avatar && (
+        <Image
+          className={styles.avatar}
+          src={testimonial.avatar.src}
+          alt={testimonial.avatar.alt}
+          width={131}
+          height={131}
+        />
+      )}
     </figure>
   );
 }

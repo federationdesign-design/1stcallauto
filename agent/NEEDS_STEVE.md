@@ -11,6 +11,25 @@ Items that need a decision or an asset from Steve. Work carries on around them.
    - About body copy: "Based in Chawston, Cambridgeshire, close to St Neots and the Black Cat roundabout on the A1"
    - Service pages: "Based in Chawston, Cambridgeshire" and "throughout Cambridgeshire and Bedfordshire".
    The address, map and (Phase 9) structured data use the supplied address.
+4. **More testimonials.** The Testimonials page shows the three from Home plus three placeholder bubbles (testimonials 4 to 6). Send the heading, text and, if wanted, a round photo for each, or say how many slots to keep.
+5. **Legal details.** The privacy, terms and cookies pages need:
+   - the business's legal name, and whether it is a limited company (number and registered office) or a sole trader;
+   - the "Last updated" date (normally the launch date);
+   - how long enquiries and job records are kept;
+   - the workshop's own terms, if the client wants them on the site (estimates, payment, parts and labour guarantees, uncollected vehicles). The current Terms cover use of the website only;
+   - the Google Analytics retention period (set in Phase 8).
+   The legal text is a plain-English draft, not legal advice; worth a read by the client.
+
+## Phase 7 decisions (for information, shout if any is wrong)
+
+- **No mockups** for Testimonials, Contact or the legal pages. Each opens with a plain green title band under the header (no photo), then cards on cream like the service pages.
+- **Testimonials:** two columns of bubbles on desktop, one on mobile, tones cycling green, sage, white. Heading "What Clients say:" as on Home.
+- **Contact:** details card (phone, email, address with "Get directions", "Call us on WhatsApp") and the "Get a free quote" form (`#quote`). "Find Us" lands on the Our Location band below, which already has `#location`.
+- **Form fields:** name, email, phone, vehicle (make, model and registration) and message. Name, email and message are required. No checkboxes, so nothing is pre-ticked. Beside the Send button: "We only use your details to reply to your enquiry. See our Privacy Policy."
+- **Form wording I had to write** (labels, "Send", the thank-you line "Thank you, your message has been sent. We will be in touch." and error messages). Interface text only; change any of it freely.
+- **No autoresponder email.** LHM emails the sender a copy. Without reCAPTCHA, that would let bots use the form to send mail to any address, so only the workshop is emailed (Reply-To is the sender). Delivery goes to `CONTACT_EMAIL_TO`, or `info@1st-call.uk` if that is not set. Tested: honeypot and validation; no live email was sent.
+- **Cookies policy** lists exactly what the site stores: the consent choice (local storage, not a cookie), GA4's `_ga` and `_ga_<id>` (only with consent), and Google's own cookies such as NID once the map is allowed. It has a "Cookie settings" button.
+- **Privacy policy** names Vercel (hosting), Resend (form delivery), Google (Analytics and Maps, with consent) and WhatsApp (if the visitor chooses it) as the services that handle data.
 
 ## Phase 6 follow-up decisions (for information, shout if any is wrong)
 

@@ -27,6 +27,7 @@
   --rule:       #707070;
   --whatsapp:   #6cd663;
   --ink:        #000000;
+  --error:      #a4161a; /* form errors: 7:1 on white */
 
   --font:       var(--font-jakarta), system-ui, sans-serif;
 

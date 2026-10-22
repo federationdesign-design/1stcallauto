@@ -55,6 +55,7 @@
 .quote {
   position: relative;
   font-style: italic;
+  overflow-wrap: anywhere; /* long unbroken strings never widen the page */
 }
 
 .heading {

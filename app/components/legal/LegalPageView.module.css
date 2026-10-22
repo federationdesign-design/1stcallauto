@@ -1,0 +1,145 @@
+/* Legal pages: long-form text on cream. Mobile: page gutter. Desktop: a
+   centred column set in vw, so the measure scales with the page. Each
+   section owns the space above it. */
+
+.body {
+  padding: var(--space-m) var(--gutter) var(--space-xl);
+  font-size: var(--fs-body);
+  line-height: 1.6;
+}
+
+.section {
+  padding-top: var(--space-m);
+}
+
+.section + .section {
+  margin-top: var(--space-m);
+  border-top: 1px solid var(--rule);
+}
+
+.section > * + * {
+  margin-top: 1em;
+}
+
+.heading {
+  font-size: var(--fs-card-title);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4em;
+  padding-left: 1.2em;
+}
+
+.body a {
+  color: var(--green);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.contact {
+  margin-top: var(--space-l);
+  padding: var(--space-m);
+  background: var(--white);
+  border-radius: var(--radius-card);
+}
+
+.button {
+  padding: 0.8em 1.6em;
+  border: 2px solid var(--green);
+  border-radius: 999px;
+  background: var(--green);
+  color: var(--white);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.button:hover {
+  opacity: 0.85;
+}
+
+/* Cookie tables: one card per row on mobile, a normal table from 768px. */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--fs-small);
+}
+
+.table thead {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+
+.table tr {
+  display: block;
+  padding: var(--space-xs) var(--space-s);
+  background: var(--white);
+  border-radius: 0.75rem;
+}
+
+.table tr + tr {
+  margin-top: var(--space-xs);
+}
+
+.table th,
+.table td {
+  display: block;
+  text-align: left;
+}
+
+.table tbody th,
+.table td {
+  padding: 0.15em 0;
+}
+
+.table td::before,
+.table tbody th::before {
+  content: attr(data-label) ': ';
+  font-weight: 600;
+}
+
+@media (min-width: 768px) {
+  .table thead {
+    position: static;
+    width: auto;
+    height: auto;
+    clip-path: none;
+  }
+
+  .table tr {
+    display: table-row;
+    padding: 0;
+    border-radius: 0;
+  }
+
+  .table th,
+  .table td {
+    display: table-cell;
+    padding: 0.6em 0.8em;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+  }
+
+  .table thead th {
+    background: var(--green);
+    color: var(--white);
+  }
+
+  .table td::before,
+  .table tbody th::before {
+    content: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  .body {
+    padding: 2vw 18vw 5.5vw;
+  }
+}

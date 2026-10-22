@@ -42,3 +42,10 @@ The rules used on Home and About (Phase 5). Later pages follow them unless their
 - Card copy stays centred; ticked lists stay as left-aligned lists inside the card, with the rule and note under them.
 - The centred intro sits above a thin grey rule, inset by the page gutter.
 - Services overview: the three link cards stack in one column like the other cards; on desktop they sit side by side at equal height.
+
+## Pages with no mockup (Phase 7)
+
+- Testimonials, Contact and the legal pages open with a green title band under the header; on mobile its top padding clears the WhatsApp button so the title never sits under it.
+- Testimonials: one bubble per row, as on Home.
+- Contact: the details card, then the form card, full width. Form labels sit above their fields.
+- Legal pages: text at the page gutter; cookie tables become one white card per cookie, each value labelled.

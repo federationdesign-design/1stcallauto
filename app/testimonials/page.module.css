@@ -1,0 +1,48 @@
+/* Testimonials. Mobile follows agent/MOBILE_PATTERNS.md: one bubble per
+   row, near full width. Desktop: two columns, the heading in the italic
+   green display style used on Home. Each bubble reserves the room below
+   itself for its tail and avatar, so the grid only sets the column gap. */
+
+.section {
+  padding: var(--space-l) 0.6rem var(--space-m);
+}
+
+.heading {
+  margin-bottom: var(--space-m);
+  font-size: var(--fs-card-title);
+  font-weight: 600;
+  text-align: center;
+}
+
+.grid {
+  display: grid;
+}
+
+.bubble {
+  --tail-x: 65%;
+}
+
+@media (min-width: 1024px) {
+  .section {
+    padding: 4vw var(--gutter) 2vw;
+  }
+
+  .heading {
+    margin-bottom: 3vw;
+    color: var(--green);
+    font-size: var(--fs-display);
+    font-style: italic;
+    text-align: left;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    align-items: start;
+    column-gap: 4vw;
+  }
+
+  /* Tails alternate sides so the two columns do not mirror each other. */
+  .bubble:nth-child(odd) {
+    --tail-x: 30%;
+  }
+}
