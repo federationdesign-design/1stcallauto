@@ -1,0 +1,232 @@
+/* Cookie banner. Dark green panel on the cream site.
+   Accept all and Reject all are given equal visual weight, as required:
+   neither is greyed out or visually subordinate to the other.
+   Mobile first: full-width sheet pinned to the bottom, buttons stacked. */
+
+.overlay {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.panel {
+  position: relative;
+  pointer-events: auto;
+  width: 100%;
+  background: var(--green);
+  color: var(--white);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 22px 20px calc(22px + env(safe-area-inset-bottom));
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.35);
+}
+
+.close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  background: transparent;
+  border: none;
+  color: var(--white);
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+.close:hover {
+  opacity: 1;
+}
+
+.body {
+  margin-bottom: 20px;
+}
+
+.heading {
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+  margin: 0 0 10px;
+}
+
+.text {
+  font-size: 0.9rem;
+  line-height: 1.55;
+  opacity: 0.9;
+  margin: 0;
+}
+
+.link {
+  color: var(--white);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* Preferences */
+.prefs {
+  margin-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.prefRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.prefInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.prefName {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.prefDesc {
+  font-size: 0.8rem;
+  line-height: 1.4;
+  opacity: 0.75;
+}
+
+.alwaysOn {
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.65;
+  white-space: nowrap;
+}
+
+/* Toggle switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 24px;
+  flex-shrink: 0;
+}
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.slider {
+  position: absolute;
+  inset: 0;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 24px;
+  transition: background 0.2s ease;
+}
+.slider::before {
+  content: '';
+  position: absolute;
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background: var(--white);
+  border-radius: 50%;
+  transition: transform 0.2s ease;
+}
+.switch input:checked + .slider {
+  background: var(--cream);
+}
+.switch input:checked + .slider::before {
+  background: var(--green);
+  transform: translateX(20px);
+}
+.switch input:focus-visible + .slider {
+  outline: 3px solid var(--whatsapp);
+  outline-offset: 3px;
+}
+
+/* Actions: stacked on mobile, Accept and Reject full width and equal. */
+.actions {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: stretch;
+  gap: 10px;
+}
+
+.manage {
+  background: transparent;
+  border: none;
+  color: var(--white);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  padding: 10px 4px;
+  text-align: center;
+}
+
+/* Accept all and Reject all share identical sizing and shape.
+   The only difference is fill vs outline, which is allowed: both are
+   immediately visible and equally easy to click. */
+.primary,
+.secondary {
+  width: 100%;
+  text-align: center;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 13px 26px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: opacity 0.2s ease, background 0.2s ease, color 0.2s ease;
+  border: 1px solid var(--cream);
+}
+
+.primary {
+  background: var(--cream);
+  color: var(--green);
+}
+.primary:hover {
+  opacity: 0.85;
+}
+
+.secondary {
+  background: transparent;
+  color: var(--white);
+}
+.secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Desktop: floating card, buttons in a row. */
+@media (min-width: 601px) {
+  .overlay {
+    padding: 16px;
+  }
+  .panel {
+    max-width: 720px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 16px;
+    padding: 28px;
+  }
+  .actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+  }
+  .manage {
+    margin-right: auto; /* push the accept/reject pair to the right */
+    padding: 12px 4px;
+    text-align: left;
+  }
+  .primary,
+  .secondary {
+    width: auto;
+  }
+}

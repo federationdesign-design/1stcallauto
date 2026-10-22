@@ -1,0 +1,120 @@
+/* ──────────────────────────────────────────────────────────────
+   1st Call Auto: global tokens and base styles
+   ──────────────────────────────────────────────────────────────
+   Colours sampled from the mockup PNGs in agent/reference/
+   (most common pixel in a 12px square, 22 October 2026):
+
+     #1c4539  dark green   hero text panel, Our Location band, footer,
+                           tick circles, "What Clients say" heading
+     #ece3c9  cream        page background, desktop nav pill
+     #5d8070  sage green   testimonial card ("Water corrosion...")
+     #ffffff  white        service cards, FAQ cards, white testimonial
+     #707070  rule grey    light horizontal rule lines (About, inner pages)
+     #6cd663  WhatsApp     floating WhatsApp button
+     #000000  ink          body copy and card headings
+
+   Type and spacing are liquid: each value interpolates linearly
+   between the 430px mobile mockup and the 1920px desktop mockup, and
+   keeps scaling past 1920px (the clamp ceiling is the value at
+   2800px). Mobile first: the minimum is the mobile size.
+   ────────────────────────────────────────────────────────────── */
+
+:root {
+  --green:      #1c4539;
+  --cream:      #ece3c9;
+  --sage:       #5d8070;
+  --white:      #ffffff;
+  --rule:       #707070;
+  --whatsapp:   #6cd663;
+  --ink:        #000000;
+
+  --font:       var(--font-jakarta), system-ui, sans-serif;
+
+  /* Type scale */
+  --fs-small:      clamp(0.875rem, 0.7668rem + 0.4027vw, 1.4715rem);
+  --fs-body:       clamp(1rem, 0.8918rem + 0.4027vw, 1.5965rem);
+  --fs-lead:       clamp(1.125rem, 0.9446rem + 0.6711vw, 2.1191rem);
+  --fs-intro:      clamp(1.1875rem, 0.9169rem + 1.0067vw, 2.6787rem);
+  --fs-card-title: clamp(1.375rem, 1.1946rem + 0.6711vw, 2.3691rem);
+  --fs-title:      clamp(2.25rem, 1.9614rem + 1.0738vw, 3.8406rem);
+  --fs-display:    clamp(1.875rem, 1.3339rem + 2.0134vw, 4.8574rem);
+  --fs-nav:        clamp(1rem, 0.8557rem + 0.5369vw, 1.7953rem);
+
+  /* Spacing scale */
+  --space-2xs:  clamp(0.25rem, 0.1779rem + 0.2685vw, 0.6477rem);
+  --space-xs:   clamp(0.5rem, 0.3918rem + 0.4027vw, 1.0965rem);
+  --space-s:    clamp(0.75rem, 0.5336rem + 0.8054vw, 1.943rem);
+  --space-m:    clamp(1.25rem, 0.8893rem + 1.3423vw, 3.2383rem);
+  --space-l:    clamp(2rem, 1.4228rem + 2.1477vw, 5.1812rem);
+  --space-xl:   clamp(3rem, 1.8817rem + 4.1611vw, 9.1636rem);
+  --gutter:     clamp(1.25rem, -0.6619rem + 7.1141vw, 11.7878rem);
+  --radius-card: clamp(1.5rem, 1.2114rem + 1.0738vw, 3.0906rem);
+
+  --line-height: 1.4;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-gutter: stable;
+  -webkit-text-size-adjust: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  background-color: var(--cream);
+  color: var(--ink);
+  font-family: var(--font);
+  font-weight: 400;
+  font-size: var(--fs-body);
+  line-height: var(--line-height);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 3px solid var(--whatsapp);
+  outline-offset: 3px;
+}
+
+/* Visually hidden but available to screen readers. */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
