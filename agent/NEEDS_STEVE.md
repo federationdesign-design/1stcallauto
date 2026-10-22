@@ -16,3 +16,12 @@ Items that need a decision or an asset from Steve. Work carries on around them.
    - (c) an earlier draft of Mechanical to ignore?
    Until told otherwise I will treat it as (c) and build `/services` from existing components as a simple index of the three specialist pages, using only copy already in the mockups.
 5. **Cut-off sentence on Mechanical.** The "Mechanical Fault Finding & Repairs" card ends "we can also arrange collection from your home or" with no ending. The Diagnostics page has the full version ("from your home or workplace."). I will not invent the ending; a placeholder will go in until you confirm.
+
+## Redirects (Phase 1 checkpoint)
+
+6. **Approve `agent/REDIRECTS.md`** before Phase 9 implements it. Three questions are at the bottom of that file.
+
+## Contact details
+
+7. **Contact email is inconsistent on the live site.** The old page shows the text `info@1st-call.uk` but the link actually goes to `mailto:1stcallautoelectrical@mail.com`. Which address should the new site and legal pages use? Until confirmed it will be a placeholder.
+8. **Facebook page.** The old site links to `https://www.facebook.com/1stCallAutoelectrical` in the menu and testimonials. The mockups show no Facebook link. Leaving it out unless you want it back.
