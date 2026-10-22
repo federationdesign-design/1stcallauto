@@ -63,11 +63,11 @@ export default function Home() {
           tone="onGreen"
           splitOnDesktop
           items={[
-            { label: 'Auto Electrical issues' },
-            { label: 'Mechanical problems' },
-            { label: 'Get a free estimate' },
-            { label: 'Air con service' },
-            { label: 'Diagnostics' },
+            { label: 'Auto Electrical issues', href: '/auto-electrical-specialists' },
+            { label: 'Mechanical problems', href: '/vehicle-mechanical-repairs-servicing' },
+            { label: 'Get a free estimate', href: '/contact#quote' },
+            { label: 'Air con service', href: '/services' },
+            { label: 'Diagnostics', href: '/fault-finding-vehicle-diagnostics' },
           ]}
         />
       </Hero>

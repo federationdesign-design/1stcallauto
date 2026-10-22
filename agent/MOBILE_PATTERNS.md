@@ -35,3 +35,9 @@ The rules used on Home and About (Phase 5). Later pages follow them unless their
 - Type and spacing come from the clamp() tokens in `app/globals.css`; no fixed sizes in components.
 - One owner per vertical gap: a section owns the space above its own content.
 - Body copy on cream between thin grey rules (About) uses an inset of about 45px on mobile.
+
+## Service pages (`app/components/services/ServicePageView.tsx`, Phase 6)
+
+- The three-column card grid becomes one column of full-width cards in reading order: the left column's cards, then the middle, then the right.
+- Card copy stays centred; ticked lists stay as left-aligned lists inside the card, with the rule and note under them.
+- The centred intro sits above a thin grey rule, inset by the page gutter.

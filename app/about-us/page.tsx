@@ -49,7 +49,7 @@ export default function AboutUs() {
           repairs to more complex electrical faults, diagnostics and vehicle modifications, we have the knowledge
           and experience to get to the bottom of the problem.
         </p>
-        <TickList tone="onGreen" items={[{ label: 'Get a free estimate' }]} />
+        <TickList tone="onGreen" items={[{ label: 'Get a free estimate', href: '/contact#quote' }]} />
       </Hero>
 
       <div className={styles.body}>
