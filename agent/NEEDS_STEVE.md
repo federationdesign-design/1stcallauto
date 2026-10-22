@@ -4,38 +4,38 @@ Items that need a decision or an asset from Steve. Work carries on around them.
 
 ## Open
 
-1. **Tidy `.env.example` header.** It still starts with the six-line note from `agent/env.example.txt` ("Intended contents of .env.example ... then delete this copy"). Claude cannot edit `.env*` files; please delete those first six lines.
-2. **Set env vars in Vercel and `.env.local`.** At minimum `NEXT_PUBLIC_WHATSAPP_NUMBER=447725629835` (the WhatsApp button reads it and is hidden without it), plus `RESEND_API_KEY`, `NOTIFICATION_EMAIL_FROM` and `CONTACT_EMAIL_TO` before the contact form goes live. Plus `NEXT_PUBLIC_GA_MEASUREMENT_ID` in Vercel (the Google Places values are done).
-3. **"Cambridgeshire" in the copy (client to confirm).** Steve has supplied the address as The Old Foundry, Chawston Lane, Chawston, Bedford MK44 3BH, which is Bedfordshire. The page copy still says Cambridgeshire, left as written for now:
+1. **Set env vars in Vercel and `.env.local`.** At minimum `NEXT_PUBLIC_WHATSAPP_NUMBER=447725629835` (the WhatsApp button reads it and is hidden without it), plus `RESEND_API_KEY`, `NOTIFICATION_EMAIL_FROM` and `CONTACT_EMAIL_TO` before the contact form goes live. Plus `NEXT_PUBLIC_GA_MEASUREMENT_ID` in Vercel (the Google Places values are done).
+2. **"Cambridgeshire" in the copy (client to confirm).** Steve has supplied the address as The Old Foundry, Chawston Lane, Chawston, Bedford MK44 3BH, which is Bedfordshire. The page copy still says Cambridgeshire, left as written for now:
    - Home hero panel: "near St Neots in Chawston, Cambridgeshire near Wyboston Lakes Golf Course"
    - About body copy: "Based in Chawston, Cambridgeshire, close to St Neots and the Black Cat roundabout on the A1"
    - Service pages: "Based in Chawston, Cambridgeshire" and "throughout Cambridgeshire and Bedfordshire".
    The address, map and (Phase 9) structured data use the supplied address.
-4. **Legal details (waiting on the client).** The privacy, terms and cookies pages need:
+3. **Legal details (waiting on the client).** The privacy, terms and cookies pages need:
    - the business's legal name, and whether it is a limited company (number and registered office) or a sole trader;
    - the "Last updated" date (normally the launch date);
    - how long enquiries and job records are kept;
    - the workshop's own terms, if the client wants them on the site (estimates, payment, parts and labour guarantees, uncollected vehicles). The current Terms cover use of the website only.
    The legal text is a plain-English draft, not legal advice; worth a read by the client.
+4. **"PE19" in the header strip (client to confirm).** The mockups' strip says "Vehicle mechanic & auto electrical engineer in PE19", and that is also the site's default description. PE19 is the St Neots postcode area; the supplied address is MK44 3BH. Left as drawn, like the Cambridgeshire mentions (item 2). The structured data uses the supplied address only.
+5. **Opening hours (optional).** Not supplied, so they are not on the site or in the structured data. Google uses them if present; send them if the client wants them shown.
 
-5. **Page titles and descriptions: approved by Steve (22 October 2026)**, with his new Services description applied. Kept here for reference:
+## Page titles and descriptions (approved 22 October 2026)
 
-   | Page | Title | Description |
-   |---|---|---|
-   | Home | Vehicle Mechanic & Auto Electrics near St Neots \| 1st Call Auto | Vehicle mechanic and auto electrical specialists in Chawston, near St Neots and the A1. Servicing, repairs, auto electrics and diagnostics for cars and vans. |
-   | About Us | About Us \| 1st Call Auto | More than 25 years in the motor trade. Vehicle mechanical and auto electrical services in Chawston, near St Neots and the A1, for motorists and local businesses. |
-   | Services | Vehicle Servicing & Repairs near St Neots \| 1st Call Auto | Need your car or van servicing? Come to our workshop in Chawston, near St Neots, we have over 25 years' experience in the motor trade. |
-   | Auto Electrical | Auto Electrical Specialists near St Neots \| 1st Call Auto | Auto electrical diagnostics, repairs, installations and modifications across St Neots and the surrounding area, with more than 25 years' experience. |
-   | Mechanical | Vehicle Mechanical Repairs & Servicing near St Neots \| 1st Call Auto | Mechanical repairs and servicing for cars and light commercial vehicles from our workshop in Chawston, near St Neots, with over 25 years' experience. |
-   | Diagnostics | Fault Finding & Vehicle Diagnostics near St Neots \| 1st Call Auto | Professional fault finding and vehicle diagnostics for cars and light commercial vehicles from our workshop in Chawston, near St Neots. |
-   | Testimonials | Testimonials \| 1st Call Auto | What clients say about 1st Call Auto, vehicle mechanic and auto electrical engineer in Chawston, near St Neots. |
-   | Contact | Contact \| 1st Call Auto | Contact 1st Call Auto in Chawston, near St Neots: call 01480 212766, message us on WhatsApp or send an enquiry for a free quote. |
-   | Privacy Policy | Privacy Policy \| 1st Call Auto | How 1st Call Auto collects, uses and protects your personal data under UK GDPR. |
-   | Terms | Terms & Conditions \| 1st Call Auto | Terms and conditions for using the 1st Call Auto website. |
-   | Cookies Policy | Cookies Policy \| 1st Call Auto | The cookies the 1st Call Auto website uses and how to change your choice. |
+With Steve's Services description applied.
 
-6. **"PE19" in the header strip (client to confirm).** The mockups' strip says "Vehicle mechanic & auto electrical engineer in PE19", and that is also the site's default description. PE19 is the St Neots postcode area; the supplied address is MK44 3BH. Left as drawn, like the Cambridgeshire mentions (item 3). The structured data uses the supplied address only.
-7. **Opening hours (optional).** Not supplied, so they are not on the site or in the structured data. Google uses them if present; send them if the client wants them shown.
+| Page | Title | Description |
+|---|---|---|
+| Home | Vehicle Mechanic & Auto Electrics near St Neots \| 1st Call Auto | Vehicle mechanic and auto electrical specialists in Chawston, near St Neots and the A1. Servicing, repairs, auto electrics and diagnostics for cars and vans. |
+| About Us | About Us \| 1st Call Auto | More than 25 years in the motor trade. Vehicle mechanical and auto electrical services in Chawston, near St Neots and the A1, for motorists and local businesses. |
+| Services | Vehicle Servicing & Repairs near St Neots \| 1st Call Auto | Need your car or van servicing? Come to our workshop in Chawston, near St Neots, we have over 25 years' experience in the motor trade. |
+| Auto Electrical | Auto Electrical Specialists near St Neots \| 1st Call Auto | Auto electrical diagnostics, repairs, installations and modifications across St Neots and the surrounding area, with more than 25 years' experience. |
+| Mechanical | Vehicle Mechanical Repairs & Servicing near St Neots \| 1st Call Auto | Mechanical repairs and servicing for cars and light commercial vehicles from our workshop in Chawston, near St Neots, with over 25 years' experience. |
+| Diagnostics | Fault Finding & Vehicle Diagnostics near St Neots \| 1st Call Auto | Professional fault finding and vehicle diagnostics for cars and light commercial vehicles from our workshop in Chawston, near St Neots. |
+| Testimonials | Testimonials \| 1st Call Auto | What clients say about 1st Call Auto, vehicle mechanic and auto electrical engineer in Chawston, near St Neots. |
+| Contact | Contact \| 1st Call Auto | Contact 1st Call Auto in Chawston, near St Neots: call 01480 212766, message us on WhatsApp or send an enquiry for a free quote. |
+| Privacy Policy | Privacy Policy \| 1st Call Auto | How 1st Call Auto collects, uses and protects your personal data under UK GDPR. |
+| Terms | Terms & Conditions \| 1st Call Auto | Terms and conditions for using the 1st Call Auto website. |
+| Cookies Policy | Cookies Policy \| 1st Call Auto | The cookies the 1st Call Auto website uses and how to change your choice. |
 
 ## Phase 9 decisions (for information, shout if any is wrong)
 
@@ -110,6 +110,9 @@ Items that need a decision or an asset from Steve. Work carries on around them.
 - **Playwright** added as a dev dependency for the screenshot step in the verification gate.
 
 ## Resolved (22 October 2026)
+
+- **`.env.example` header:** leftover note removed by Steve (committed).
+- **Page titles and descriptions:** approved, with Steve's Services description.
 
 - **Testimonial slots:** replaced by live Google reviews.
 - **Google Place ID:** added to `.env.local` and Vercel; the env example file lists both Google lines (committed).
