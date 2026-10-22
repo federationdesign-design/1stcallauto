@@ -47,7 +47,7 @@ With Steve's Services description applied.
 
 ## Phase 8 decisions (for information, shout if any is wrong)
 
-- **Google reviews** are fetched by the Testimonials page on the server and cached for 6 hours, so visitors' browsers never contact Google and no consent is needed. They follow the three testimonials from the mockups. Each shows its stars, the text, the reviewer's name (linked to their Google profile, as Google requires) and "Google review, 2 months ago"; the round under the tail shows their initials, never their Google photo. Under the bubbles: "Rated 4.8 out of 5 from 27 reviews. Reviews from Google Maps. See all reviews on Google". Reviews with stars but no text are left out. If anything fails, the page shows the three testimonials only, with no error.
+- **Google reviews** are fetched by the Testimonials page on the server and cached for 6 hours, so visitors' browsers never contact Google and no consent is needed. They follow the three testimonials from the mockups. Each shows its stars, the text, the reviewer's name (linked to their Google profile, as Google requires) and "Google review, 2 months ago"; the round under the tail shows their initials, never their Google photo. Under the bubbles: "Rated 4.9 out of 5 from 65 reviews. Reviews from Google Maps. See all reviews on Google". Reviews with stars but no text are left out. If anything fails, the page shows the three testimonials only, with no error.
 - **Places API (New), not LHM's legacy endpoint.** New Google Cloud projects cannot enable the legacy Place Details API LHM uses. Google returns at most 5 reviews, chosen by Google.
 - **Consent Mode:** GA4 loads only after analytics consent. Before its config call every consent type defaults to denied, then only `analytics_storage` is granted. Ad storage, ad personalisation and Google signals stay off. Withdrawing consent sets it back to denied, disables GA for the visit and clears the `_ga` cookies. Tested in a browser with a dummy GA ID: no external requests before consent, the right order in `dataLayer`, and clean withdrawal.
 - **Search Console:** verified by DNS, so no meta tag; `NEXT_PUBLIC_GSC_VERIFICATION` is unused.
@@ -116,6 +116,7 @@ With Steve's Services description applied.
 
 - **Testimonial slots:** replaced by live Google reviews.
 - **Google Place ID:** added to `.env.local` and Vercel; the env example file lists both Google lines (committed).
+- **Google reviews not showing (22 October 2026):** `GOOGLE_PLACE_ID` in `.env.local` held the API key, so Google returned 400. Steve set the real Place ID; 5 reviews now render (4.9 from 65). Failures now log a server-side warning with the key masked, and `agent/tools/check-google-reviews.mjs` checks the request. Still to do: rotate the API key (it was printed once in a Google error message during diagnosis), and check `GOOGLE_PLACE_ID` in Vercel holds the Place ID too.
 - **GA4:** data retention 14 months (now in the privacy policy), Google signals off.
 - **Static map image:** none; keep the approved map panel.
 - **Form wording:** approved as written.
