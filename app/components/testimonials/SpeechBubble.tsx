@@ -43,14 +43,32 @@ export function SpeechBubble({ testimonial, tone = 'green', desktopTone, heading
       <svg className={styles.tail} viewBox="0 0 80 95" aria-hidden="true">
         <path d={TAIL} />
       </svg>
+      {testimonial.rating !== undefined && <Stars rating={testimonial.rating} />}
       <blockquote className={styles.quote}>
-        <Heading className={styles.heading}>{testimonial.heading}</Heading>
+        {testimonial.heading && <Heading className={styles.heading}>{testimonial.heading}</Heading>}
         {testimonial.body.map((paragraph) => (
           <p key={paragraph} className={styles.text}>
             {paragraph}
           </p>
         ))}
       </blockquote>
+      {testimonial.source && (
+        <figcaption className={styles.caption}>
+          {testimonial.source.authorUrl ? (
+            <a href={testimonial.source.authorUrl} target="_blank" rel="noopener noreferrer">
+              {testimonial.source.author}
+            </a>
+          ) : (
+            testimonial.source.author
+          )}
+          , {testimonial.source.detail}
+        </figcaption>
+      )}
+      {!testimonial.avatar && testimonial.initials && (
+        <span className={`${styles.avatar} ${styles.initials}`} aria-hidden="true">
+          {testimonial.initials}
+        </span>
+      )}
       {testimonial.avatar && (
         <Image
           className={styles.avatar}
@@ -61,5 +79,19 @@ export function SpeechBubble({ testimonial, tone = 'green', desktopTone, heading
         />
       )}
     </figure>
+  );
+}
+
+// Five stars, filled up to the rating. Read out as "Rated 4 out of 5".
+function Stars({ rating }: { rating: number }) {
+  const filled = Math.round(rating);
+  return (
+    <p className={styles.stars} role="img" aria-label={`Rated ${filled} out of 5`}>
+      {[1, 2, 3, 4, 5].map((n) => (
+        <svg key={n} viewBox="0 0 24 24" aria-hidden="true" className={n <= filled ? styles.starOn : styles.starOff}>
+          <path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6-4.9-4.6 6.6-.8z" />
+        </svg>
+      ))}
+    </p>
   );
 }

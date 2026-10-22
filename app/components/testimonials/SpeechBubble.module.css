@@ -86,6 +86,59 @@
   transform: translateX(-50%);
 }
 
+/* Initials in the round when there is no photo (Google reviews: their
+   photos load from Google's servers, so they are never used). */
+.initials {
+  display: grid;
+  place-items: center;
+  background: var(--green);
+  color: var(--white);
+  font-size: calc(var(--avatar-size) * 0.36);
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  border: 3px solid var(--cream);
+}
+
+.stars {
+  position: relative;
+  display: flex;
+  gap: 0.15em;
+  margin-bottom: var(--space-xs);
+  font-size: var(--fs-lead);
+}
+
+.stars svg {
+  width: 1.1em;
+  height: 1.1em;
+}
+
+/* Two classes plus the element, so these beat the tone rules that fill
+   every path in the bubble. */
+.stars .starOn path {
+  fill: #f2b300;
+  stroke: rgba(0, 0, 0, 0.35);
+  stroke-width: 0.75;
+}
+
+.stars .starOff path {
+  fill: currentColor;
+  opacity: 0.3;
+}
+
+.caption {
+  position: relative;
+  margin-top: var(--space-s);
+  font-size: var(--fs-body);
+  font-weight: 600;
+}
+
+.caption a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
 /* Optional tone from 1024px (the car alarm bubble is green on the mobile
    Home mockup and white on desktop). */
 @media (min-width: 1024px) {

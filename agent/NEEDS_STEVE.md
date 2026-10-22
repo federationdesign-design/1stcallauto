@@ -5,25 +5,37 @@ Items that need a decision or an asset from Steve. Work carries on around them.
 ## Open
 
 1. **Tidy `.env.example` header.** It still starts with the six-line note from `agent/env.example.txt` ("Intended contents of .env.example ... then delete this copy"). Claude cannot edit `.env*` files; please delete those first six lines.
-2. **Set env vars in Vercel and `.env.local`.** At minimum `NEXT_PUBLIC_WHATSAPP_NUMBER=447725629835` (the WhatsApp button reads it and is hidden without it), plus `RESEND_API_KEY`, `NOTIFICATION_EMAIL_FROM` and `CONTACT_EMAIL_TO` before the contact form goes live. GA and Search Console values when you have them.
+2. **Set env vars in Vercel and `.env.local`.** At minimum `NEXT_PUBLIC_WHATSAPP_NUMBER=447725629835` (the WhatsApp button reads it and is hidden without it), plus `RESEND_API_KEY`, `NOTIFICATION_EMAIL_FROM` and `CONTACT_EMAIL_TO` before the contact form goes live. Plus `NEXT_PUBLIC_GA_MEASUREMENT_ID`, `GOOGLE_PLACES_API_KEY` and `GOOGLE_PLACE_ID` (items 5 and 6).
 3. **"Cambridgeshire" in the copy (client to confirm).** Steve has supplied the address as The Old Foundry, Chawston Lane, Chawston, Bedford MK44 3BH, which is Bedfordshire. The page copy still says Cambridgeshire, left as written for now:
    - Home hero panel: "near St Neots in Chawston, Cambridgeshire near Wyboston Lakes Golf Course"
    - About body copy: "Based in Chawston, Cambridgeshire, close to St Neots and the Black Cat roundabout on the A1"
    - Service pages: "Based in Chawston, Cambridgeshire" and "throughout Cambridgeshire and Bedfordshire".
    The address, map and (Phase 9) structured data use the supplied address.
-4. **More testimonials.** The Testimonials page shows the three from Home plus three placeholder bubbles (testimonials 4 to 6). Send the heading, text and, if wanted, a round photo for each, or say how many slots to keep.
-5. **Legal details.** The privacy, terms and cookies pages need:
+4. **Legal details (waiting on the client).** The privacy, terms and cookies pages need:
    - the business's legal name, and whether it is a limited company (number and registered office) or a sole trader;
    - the "Last updated" date (normally the launch date);
    - how long enquiries and job records are kept;
    - the workshop's own terms, if the client wants them on the site (estimates, payment, parts and labour guarantees, uncollected vehicles). The current Terms cover use of the website only;
-   - the Google Analytics retention period (set in Phase 8).
+   - the Google Analytics retention period (see item 6).
    The legal text is a plain-English draft, not legal advice; worth a read by the client.
+5. **Google reviews: Place ID.** Claude cannot read `.env.local`, so please run this once the key is in it:
+   `! node --env-file=.env.local agent/tools/find-place-id.mjs`
+   It prints the Place ID, name and address of each match (never the key). Add the right one to `.env.local` and Vercel as `GOOGLE_PLACE_ID`, and add `GOOGLE_PLACE_ID=` and `GOOGLE_PLACES_API_KEY=` to `.env.example`. The key needs **Places API (New)** enabled in Google Cloud (see Phase 8 decisions). Until both are set, Testimonials shows the three testimonials only.
+6. **GA4 property settings** (in Google Analytics, not code): set data retention (2 or 14 months) and tell me which, for the privacy policy; leave Google signals off; and set `NEXT_PUBLIC_GA_MEASUREMENT_ID` in Vercel.
+7. **No static map image.** Phase 8 asks for a static map image before consent; the assets have none. The approved placeholder panel (address, "Load map", "Get directions") is used instead. Send an image if you want one there.
+
+## Phase 8 decisions (for information, shout if any is wrong)
+
+- **Google reviews** are fetched by the Testimonials page on the server and cached for 6 hours, so visitors' browsers never contact Google and no consent is needed. They follow the three testimonials from the mockups. Each shows its stars, the text, the reviewer's name (linked to their Google profile, as Google requires) and "Google review, 2 months ago"; the round under the tail shows their initials, never their Google photo. Under the bubbles: "Rated 4.8 out of 5 from 27 reviews. Reviews from Google Maps. See all reviews on Google". Reviews with stars but no text are left out. If anything fails, the page shows the three testimonials only, with no error.
+- **Places API (New), not LHM's legacy endpoint.** New Google Cloud projects cannot enable the legacy Place Details API LHM uses. Google returns at most 5 reviews, chosen by Google.
+- **Consent Mode:** GA4 loads only after analytics consent. Before its config call every consent type defaults to denied, then only `analytics_storage` is granted. Ad storage, ad personalisation and Google signals stay off. Withdrawing consent sets it back to denied, disables GA for the visit and clears the `_ga` cookies. Tested in a browser with a dummy GA ID: no external requests before consent, the right order in `dataLayer`, and clean withdrawal.
+- **Search Console:** verified by DNS, so no meta tag; `NEXT_PUBLIC_GSC_VERIFICATION` is unused.
+- **No Google Ads, remarketing or Facebook pixel** anywhere in the code.
 
 ## Phase 7 decisions (for information, shout if any is wrong)
 
 - **No mockups** for Testimonials, Contact or the legal pages. Each opens with a plain green title band under the header (no photo), then cards on cream like the service pages.
-- **Testimonials:** two columns of bubbles on desktop, one on mobile, tones cycling green, sage, white. Heading "What Clients say:" as on Home.
+- **Testimonials:** two columns of bubbles on desktop, one on mobile, tones cycling green, sage, white. Heading "What Clients say:" as on Home. (The placeholder slots were replaced by Google reviews in Phase 8.)
 - **Contact:** details card (phone, email, address with "Get directions", "Call us on WhatsApp") and the "Get a free quote" form (`#quote`). "Find Us" lands on the Our Location band below, which already has `#location`.
 - **Form fields:** name, email, phone, vehicle (make, model and registration) and message. Name, email and message are required. No checkboxes, so nothing is pre-ticked. Beside the Send button: "We only use your details to reply to your enquiry. See our Privacy Policy."
 - **Form wording I had to write** (labels, "Send", the thank-you line "Thank you, your message has been sent. We will be in touch." and error messages). Interface text only; change any of it freely.
@@ -77,6 +89,10 @@ Items that need a decision or an asset from Steve. Work carries on around them.
 - **Playwright** added as a dev dependency for the screenshot step in the verification gate.
 
 ## Resolved (22 October 2026)
+
+- **Testimonial slots:** replaced by live Google reviews.
+- **Form wording:** approved as written.
+- **Search Console:** verified by DNS; no verification meta tag.
 
 - **Cut-off sentences:** "...from your home or workplace." and "...mechanical work and MOT process in one place."
 - **Services:** now a short overview (hero, intro, three cards linking to Auto Electrical, Mechanical and Diagnostics). The duplicated Mechanical cards are removed.

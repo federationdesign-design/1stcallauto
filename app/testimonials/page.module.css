@@ -22,6 +22,19 @@
   --tail-x: 65%;
 }
 
+.attribution {
+  margin-top: var(--space-m);
+  font-size: var(--fs-body);
+  text-align: center;
+}
+
+.attribution a {
+  color: var(--green);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
 @media (min-width: 1024px) {
   .section {
     padding: 4vw var(--gutter) 2vw;

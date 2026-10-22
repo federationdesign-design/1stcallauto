@@ -3,9 +3,12 @@
 
 export type Testimonial = {
   id: string;
-  heading: string;
+  heading?: string;
   body: string[]; // one entry per paragraph
   avatar?: { src: string; alt: string }; // round photo under the tail
+  initials?: string; // shown in the round instead, when there is no photo
+  rating?: number; // stars out of 5 (Google reviews)
+  source?: { author: string; authorUrl?: string; detail: string }; // caption under the quote
 };
 
 export const TESTIMONIALS: Testimonial[] = [
@@ -35,11 +38,3 @@ export const TESTIMONIALS: Testimonial[] = [
     avatar: { src: '/images/female_client_roundal.png', alt: 'Woman with her hands over her ears' },
   },
 ];
-
-// Empty slots on the Testimonials page for more reviews from the client
-// (see agent/NEEDS_STEVE.md). Remove a slot when its testimonial arrives.
-export const TESTIMONIAL_SLOTS: Testimonial[] = [4, 5, 6].map((n) => ({
-  id: `placeholder-${n}`,
-  heading: `[[PLACEHOLDER: testimonial ${n} heading]]`,
-  body: [`[[PLACEHOLDER: testimonial ${n} text]]`],
-}));
