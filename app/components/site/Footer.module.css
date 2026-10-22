@@ -63,9 +63,9 @@
   flex-direction: column;
   align-items: center;
   gap: var(--space-xs);
-  /* Scales down a touch on narrow phones so the three links keep to one
-     line, as drawn (fits down to a 320px screen). */
-  font-size: min(var(--fs-small), 3.4vw);
+  /* 3pt below the small text size (Steve). At this size the three links
+     keep to one line, as drawn, down to a 320px screen. */
+  font-size: calc(var(--fs-small) - 3pt);
   white-space: nowrap;
 }
 
@@ -99,6 +99,6 @@
   }
 
   .legalGroup {
-    font-size: var(--fs-nav);
+    font-size: calc(var(--fs-nav) - 3pt);
   }
 }
