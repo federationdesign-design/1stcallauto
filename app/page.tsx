@@ -54,14 +54,26 @@ export default function Home() {
           alt: 'Mechanic in blue overalls lying on a creeper under the front of a car',
         }}
         aside={
-          <Image
-            className={styles.heroLogo}
-            src="/images/logo_full_colour.svg"
-            alt=""
-            width={1120}
-            height={610}
-            unoptimized
-          />
+          // The inverted logo sits exactly on top and crossfades in with the
+          // hero photo fade (--hero-fade, set by the Hero).
+          <span className={styles.heroLogo}>
+            <Image
+              className={styles.heroLogoColour}
+              src="/images/logo_full_colour.svg"
+              alt=""
+              width={1120}
+              height={610}
+              unoptimized
+            />
+            <Image
+              className={styles.heroLogoInvert}
+              src="/images/hero_logo_invert.svg"
+              alt=""
+              width={1120}
+              height={610}
+              unoptimized
+            />
+          </span>
         }
       >
         <p>

@@ -7,7 +7,8 @@
 // Desktop (1024px and up): the panel and aside overlap the photo, as drawn.
 // The "home" variant has the taller Home photo, the title bottom right and
 // the aside set to the panel's lower edge.
-// The photo fades out as the page scrolls (see useHeroFade).
+// The photo fades out as the page scrolls (see useHeroFade), which also
+// publishes the fade as --hero-fade for the aside.
 
 import { useRef, type ReactNode } from 'react';
 import { getImageProps } from 'next/image';
@@ -31,7 +32,8 @@ type Props = {
 export function Hero({ image, title, children, aside, variant = 'inner' }: Props) {
   const mediaRef = useRef<HTMLDivElement>(null);
   const fadeRef = useRef<HTMLDivElement>(null);
-  useHeroFade(mediaRef, fadeRef);
+  const sectionRef = useRef<HTMLElement>(null);
+  useHeroFade(mediaRef, fadeRef, sectionRef);
 
   const common = { alt: image.alt, sizes: '100vw', fetchPriority: 'high' as const };
   const {
@@ -42,7 +44,7 @@ export function Hero({ image, title, children, aside, variant = 'inner' }: Props
   } = getImageProps({ ...common, ...image.mobile });
 
   return (
-    <section className={`${styles.hero} ${variant === 'home' ? styles.home : ''}`}>
+    <section ref={sectionRef} className={`${styles.hero} ${variant === 'home' ? styles.home : ''}`}>
       <div ref={mediaRef} className={styles.media}>
         <picture>
           <source media="(min-width: 768px)" srcSet={desktopSrcSet} />

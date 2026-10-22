@@ -7,10 +7,40 @@
   text-underline-offset: 0.12em;
 }
 
+/* The large hero logo (desktop only, in the hero aside). The inverted
+   version is stacked exactly over it and the two crossfade on opacity only,
+   at the rate of the hero photo fade (--hero-fade, 0 to 1). With reduced
+   motion --hero-fade stays 0 and the inverted logo is not shown. */
 .heroLogo {
+  position: relative;
   display: block;
   width: 38.3vw; /* 735 of 1920 */
+}
+
+.heroLogo img {
+  display: block;
+  width: 100%;
   height: auto;
+}
+
+.heroLogoColour {
+  opacity: calc(1 - var(--hero-fade, 0));
+}
+
+.heroLogo .heroLogoInvert {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  opacity: var(--hero-fade, 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heroLogoColour {
+    opacity: 1;
+  }
+  .heroLogo .heroLogoInvert {
+    display: none;
+  }
 }
 
 /* ── Intro columns ─────────────────────────────────────────────

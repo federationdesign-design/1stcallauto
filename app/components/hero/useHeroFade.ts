@@ -5,8 +5,10 @@
 // from 0 to 1 as the page scrolls: it starts once the visitor has scrolled
 // 10% of the hero's height and is fully opaque by 65%.
 //
-// Added for 1st Call: visitors who ask for reduced motion get no fade. The
-// overlay stays at 0 and the image stays static. The preference is watched
+// Added for 1st Call: the same value is published as --hero-fade (0 to 1)
+// on the hero section, so anything else in the hero (the Home logo
+// crossfade) runs at exactly the same rate. Visitors who ask for reduced
+// motion get no fade: the overlay and --hero-fade stay at 0. The preference is watched
 // live, so changing it in the OS takes effect without a reload.
 
 import { useEffect, type RefObject } from 'react';
@@ -16,7 +18,8 @@ const RANGE = 0.55; // fraction of hero height over which it reaches full opacit
 
 export function useHeroFade(
   heroRef: RefObject<HTMLElement | null>,
-  overlayRef: RefObject<HTMLElement | null>
+  overlayRef: RefObject<HTMLElement | null>,
+  sectionRef: RefObject<HTMLElement | null>
 ) {
   useEffect(() => {
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -25,7 +28,9 @@ export function useHeroFade(
       const hero = heroRef.current, overlay = overlayRef.current;
       if (!hero || !overlay) return;
       const h = hero.offsetHeight, s = window.scrollY, start = h * START, range = h * RANGE;
-      overlay.style.opacity = s <= start ? '0' : String(Math.min((s - start) / range, 1));
+      const fade = s <= start ? '0' : String(Math.min((s - start) / range, 1));
+      overlay.style.opacity = fade;
+      sectionRef.current?.style.setProperty('--hero-fade', fade);
     };
 
     const attach = () => {
@@ -36,6 +41,7 @@ export function useHeroFade(
     const detach = () => {
       window.removeEventListener('scroll', handleScroll);
       if (overlayRef.current) overlayRef.current.style.opacity = '0';
+      sectionRef.current?.style.setProperty('--hero-fade', '0');
     };
 
     const sync = () => (reduceMotion.matches ? detach() : attach());
@@ -46,5 +52,5 @@ export function useHeroFade(
       reduceMotion.removeEventListener('change', sync);
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [heroRef, overlayRef]);
+  }, [heroRef, overlayRef, sectionRef]);
 }
