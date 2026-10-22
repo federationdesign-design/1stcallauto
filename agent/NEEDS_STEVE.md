@@ -4,7 +4,7 @@ Items that need a decision or an asset from Steve. Work carries on around them.
 
 ## Open
 
-1. **Set env vars in Vercel and `.env.local`.** At minimum `NEXT_PUBLIC_WHATSAPP_NUMBER=447725629835` (the WhatsApp button reads it and is hidden without it), plus `RESEND_API_KEY`, `NOTIFICATION_EMAIL_FROM` and `CONTACT_EMAIL_TO` before the contact form goes live. Plus `NEXT_PUBLIC_GA_MEASUREMENT_ID` in Vercel (the Google Places values are done).
+1. **Set env vars in Vercel and `.env.local`.** At minimum `NEXT_PUBLIC_WHATSAPP_NUMBER=447725629835` (it overrides the WhatsApp number; without it the site falls back to 447725629835, so the button always shows), plus `RESEND_API_KEY`, `NOTIFICATION_EMAIL_FROM` and `CONTACT_EMAIL_TO` before the contact form goes live. Plus `NEXT_PUBLIC_GA_MEASUREMENT_ID` in Vercel (the Google Places values are done).
 2. **"Cambridgeshire" in the copy (client to confirm).** Steve has supplied the address as The Old Foundry, Chawston Lane, Chawston, Bedford MK44 3BH, which is Bedfordshire. The page copy still says Cambridgeshire, left as written for now:
    - Home hero panel: "near St Neots in Chawston, Cambridgeshire near Wyboston Lakes Golf Course"
    - About body copy: "Based in Chawston, Cambridgeshire, close to St Neots and the Black Cat roundabout on the A1"
@@ -74,7 +74,7 @@ With Steve's Services description applied.
 
 - **Hero images:** Services and Mechanical use the Mechanical photo (as drawn); Auto Electrical reuses the About photo, per Steve.
 - **"Get a free estimate" and "Get quote now"** in the service heroes both go to the quote form (`/contact#quote`), per Steve.
-- **"Call us on WhatsApp"** in the last card of each page is a plain wa.me link, hidden if `NEXT_PUBLIC_WHATSAPP_NUMBER` is not set.
+- **"Call us on WhatsApp"** in the last card of each page is a plain wa.me link, using `NEXT_PUBLIC_WHATSAPP_NUMBER` or the fallback 447725629835.
 - **Paragraph spacing in cards** is the same everywhere. The mockups vary (some line breaks have a blank line, some don't); every new line in the mockup is a new paragraph.
 
 ## Phase 5 decisions (for information, shout if any is wrong)

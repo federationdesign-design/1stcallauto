@@ -7,11 +7,15 @@ export const PHONE_HREF = 'tel:+441480212766';
 
 export const EMAIL = 'info@1st-call.uk';
 
-// WhatsApp number comes from the environment, never hard-coded in components.
-// Returns null when the variable is not set, so callers can hide the link.
-export function whatsappHref(): string | null {
-  const number = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER;
-  return number ? `https://wa.me/${number}` : null;
+// WhatsApp number: NEXT_PUBLIC_WHATSAPP_NUMBER overrides it; otherwise the
+// business number from CLAUDE.md, so the link always renders even when the
+// variable does not reach the build (Steve, 22 October 2026). Components
+// take the link from here and never hard-code the number.
+const WHATSAPP_FALLBACK = '447725629835';
+
+export function whatsappHref(): string {
+  const number = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || WHATSAPP_FALLBACK;
+  return `https://wa.me/${number}`;
 }
 
 // Supplied by Steve. Use exactly this address everywhere it appears.
