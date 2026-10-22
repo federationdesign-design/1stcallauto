@@ -6,6 +6,10 @@ Items that need a decision or an asset from Steve. Work carries on around them.
 
 1. **Cut-off sentence on Mechanical.** The "Mechanical Fault Finding & Repairs" card ends "we can also arrange collection from your home or" with no ending. A placeholder goes in until you supply the ending. (The Diagnostics page has "from your home or workplace.")
 2. **Hero testimonial avatar.** The "Saved me money" bubble on inner pages has a small round avatar. I will match the roundal drawn beside the same testimonial on Home; shout if that is wrong.
+3. **Navigation defaults (confirm).** Details in `ROUTES.md`.
+   - "Services" goes to `/services`, with the three specialist pages beneath it (desktop dropdown, expandable list in the mobile menu).
+   - "Find Us" goes to the location section on `/contact`.
+   - "Get a free quote" in the footer goes to the form on `/contact`.
 
 ## Resolved (22 October 2026)
 
