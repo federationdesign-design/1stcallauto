@@ -56,6 +56,9 @@
   /* Header logo width, 170px at 430 to 243px at 1920, still scaling above.
      Shared so the title band can clear the mobile header exactly. */
   --logo-w:     clamp(10.625rem, 9.306rem + 4.9vw, 17.9rem);
+  /* Floating WhatsApp button, 72px at 430 to 160px at 1920. Shared so the
+     footer can keep its last line clear of the button on mobile. */
+  --wa-size:    clamp(4.5rem, 2.9125rem + 5.906vw, 13.25rem);
   --radius-card: clamp(1.5rem, 1.2114rem + 1.0738vw, 3.0906rem);
 
   --line-height: 1.4;

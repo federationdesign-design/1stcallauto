@@ -6,7 +6,10 @@
   flex-direction: column;
   align-items: center;
   gap: var(--space-l);
-  padding: var(--space-xl) var(--gutter) var(--space-m);
+  /* Mobile: room under the last line for the WhatsApp button, fixed bottom
+     right, so it never covers the legal links at the end of the page. */
+  padding: var(--space-xl) var(--gutter)
+    calc(var(--wa-size) + var(--gutter) + var(--space-s) + env(safe-area-inset-bottom, 0px));
   background: var(--green);
   color: var(--white);
 }

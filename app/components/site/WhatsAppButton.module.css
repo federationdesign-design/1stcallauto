@@ -13,7 +13,7 @@
   bottom: calc(var(--cookie-banner-h, env(safe-area-inset-bottom, 0px)) + var(--gutter));
   right: var(--gutter);
   z-index: 45;
-  width: clamp(4.5rem, 2.9125rem + 5.906vw, 13.25rem);
+  width: var(--wa-size);
   aspect-ratio: 1;
   border-radius: 50%;
   overflow: hidden;
