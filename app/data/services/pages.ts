@@ -252,7 +252,7 @@ export const SERVICING: ServicePage = {
   title: 'Servicing your vehicle',
   metaTitle: 'Vehicle Servicing & Repairs near St Neots',
   metaDescription:
-    'Auto electrics, mechanical repairs, servicing and diagnostics from our workshop in Chawston, near St Neots, with over 25 years’ experience in the motor trade.',
+    'Need your car or van servicing? Come to our workshop in Chawston, near St Neots, we have over 25 years’ experience in the motor trade.',
   image: MECHANICAL_IMAGE,
   panel: ELECTRICAL_PANEL,
   intro: {

@@ -18,13 +18,13 @@ Items that need a decision or an asset from Steve. Work carries on around them.
    - the workshop's own terms, if the client wants them on the site (estimates, payment, parts and labour guarantees, uncollected vehicles). The current Terms cover use of the website only.
    The legal text is a plain-English draft, not legal advice; worth a read by the client.
 
-5. **Page titles and descriptions (for approval).** Titles show in the browser tab and in Google results; every page has its own. Edit any of them:
+5. **Page titles and descriptions: approved by Steve (22 October 2026)**, with his new Services description applied. Kept here for reference:
 
    | Page | Title | Description |
    |---|---|---|
    | Home | Vehicle Mechanic & Auto Electrics near St Neots \| 1st Call Auto | Vehicle mechanic and auto electrical specialists in Chawston, near St Neots and the A1. Servicing, repairs, auto electrics and diagnostics for cars and vans. |
    | About Us | About Us \| 1st Call Auto | More than 25 years in the motor trade. Vehicle mechanical and auto electrical services in Chawston, near St Neots and the A1, for motorists and local businesses. |
-   | Services | Vehicle Servicing & Repairs near St Neots \| 1st Call Auto | Auto electrics, mechanical repairs, servicing and diagnostics from our workshop in Chawston, near St Neots, with over 25 years' experience in the motor trade. |
+   | Services | Vehicle Servicing & Repairs near St Neots \| 1st Call Auto | Need your car or van servicing? Come to our workshop in Chawston, near St Neots, we have over 25 years' experience in the motor trade. |
    | Auto Electrical | Auto Electrical Specialists near St Neots \| 1st Call Auto | Auto electrical diagnostics, repairs, installations and modifications across St Neots and the surrounding area, with more than 25 years' experience. |
    | Mechanical | Vehicle Mechanical Repairs & Servicing near St Neots \| 1st Call Auto | Mechanical repairs and servicing for cars and light commercial vehicles from our workshop in Chawston, near St Neots, with over 25 years' experience. |
    | Diagnostics | Fault Finding & Vehicle Diagnostics near St Neots \| 1st Call Auto | Professional fault finding and vehicle diagnostics for cars and light commercial vehicles from our workshop in Chawston, near St Neots. |
