@@ -87,7 +87,7 @@ export default function Home() {
           {INTRO_COLUMNS.map((column) => (
             <div key={column.heading}>
               <h2 className={styles.introHeading}>{column.heading}</h2>
-              <p>{column.text}</p>
+              <p className={styles.introText}>{column.text}</p>
             </div>
           ))}
         </Carousel>

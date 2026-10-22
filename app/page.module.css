@@ -34,6 +34,11 @@
   font-weight: 600;
 }
 
+/* 2pt below the heading, still liquid (Steve). */
+.introText {
+  font-size: calc(var(--fs-card-title) - 2pt);
+}
+
 @media (min-width: 1024px) {
   .intro {
     padding: 3.44vw 4.22vw 0;
