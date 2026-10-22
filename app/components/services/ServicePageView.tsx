@@ -79,7 +79,7 @@ function Card({ card }: { card: ServiceCard }) {
       {card.afterList && <p className={styles.afterList}>{card.afterList}</p>}
       {whatsapp && (
         <a href={whatsapp} className={styles.whatsapp}>
-          <Image src="/images/wa_icon.jpg" alt="" width={161} height={161} className={styles.whatsappIcon} />
+          <Image src="/images/wa_icon.jpg" alt="" width={161} height={161} className={styles.whatsappIcon} unoptimized />
           Call us on WhatsApp
         </a>
       )}

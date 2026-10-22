@@ -11,11 +11,14 @@ export function WhatsAppButton() {
   if (!href) return null;
 
   // The aside is only a landmark so the link is not loose content; the
-  // link itself is fixed in place.
+  // link itself is fixed in place. The icon is served as the plain file
+  // (unoptimized), not through /_next/image, so it does not depend on
+  // Vercel's image optimiser. The button was missing on the Vercel preview
+  // while /images/wa_icon.jpg itself loaded.
   return (
     <aside aria-label="WhatsApp">
       <a href={href} className={styles.button} aria-label="Message us on WhatsApp">
-        <Image src="/images/wa_icon.jpg" alt="" width={161} height={161} sizes="(min-width: 1024px) 160px, 72px" />
+        <Image src="/images/wa_icon.jpg" alt="" width={161} height={161} unoptimized />
       </a>
     </aside>
   );
