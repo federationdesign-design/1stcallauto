@@ -10,9 +10,13 @@ export function WhatsAppButton() {
   const href = whatsappHref();
   if (!href) return null;
 
+  // The aside is only a landmark so the link is not loose content; the
+  // link itself is fixed in place.
   return (
-    <a href={href} className={styles.button} aria-label="Message us on WhatsApp">
-      <Image src="/images/wa_icon.jpg" alt="" width={161} height={161} sizes="(min-width: 1024px) 160px, 72px" />
-    </a>
+    <aside aria-label="WhatsApp">
+      <a href={href} className={styles.button} aria-label="Message us on WhatsApp">
+        <Image src="/images/wa_icon.jpg" alt="" width={161} height={161} sizes="(min-width: 1024px) 160px, 72px" />
+      </a>
+    </aside>
   );
 }

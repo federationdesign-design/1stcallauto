@@ -9,5 +9,4 @@ Every `[[PLACEHOLDER: ...]]` in the codebase, where it lives and what it waits f
 | `[[PLACEHOLDER: policy date]]` | `app/data/legal.ts`, all three legal pages | "Last updated" date, normally the launch date (NEEDS_STEVE 4) |
 | `[[PLACEHOLDER: how long enquiries are kept]]` | `app/data/legal.ts`, Privacy Policy | Retention period for enquiries (NEEDS_STEVE 4) |
 | `[[PLACEHOLDER: how long job records are kept]]` | `app/data/legal.ts`, Privacy Policy | Retention period for job records and invoices (NEEDS_STEVE 4) |
-| `[[PLACEHOLDER: Google Analytics data retention period]]` | `app/data/legal.ts`, Privacy Policy | The GA4 retention setting, chosen in Phase 8 (NEEDS_STEVE 4) |
 | `[[PLACEHOLDER: workshop terms from the client, ...]]` | `app/data/legal.ts`, Terms & Conditions | The workshop's own terms (estimates, payment, guarantees, uncollected vehicles) (NEEDS_STEVE 4) |

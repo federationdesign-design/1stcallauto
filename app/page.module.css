@@ -39,7 +39,9 @@
     padding: 3.44vw 4.22vw 0;
   }
 
-  .introTrack {
+  /* Two classes so this beats the carousel's own `display: flex`, whatever
+     order the stylesheets load in. */
+  .intro .introTrack {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
   }

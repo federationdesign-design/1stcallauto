@@ -1,6 +1,6 @@
 # Redirects (draft for approval)
 
-Status: **approved by Steve on 22 October 2026. Not yet implemented.** Implementation happens in Phase 9 as permanent (308) redirects in `next.config`, plus middleware for the 410s.
+Status: **approved by Steve on 22 October 2026 and implemented in Phase 9.** Path redirects are permanent (308) redirects in `next.config.ts`. The 410s and the `?p=` / `?page_id=` / `?cat=` / `?author=` links on Home are handled in `proxy.ts`, because a `next.config` redirect would carry the query string along and loop. Old URLs with a trailing slash take two 308 hops (Next first removes the slash), ending on Home.
 
 Decisions: WordPress admin and system paths return 410. Old `/#section` anchors are left to land on Home (option a, no script).
 

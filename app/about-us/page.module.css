@@ -104,7 +104,9 @@
     text-align: left;
   }
 
-  .reasonsTrack {
+  /* Two classes so this beats the carousel's track rules, whatever order
+     the stylesheets load in. */
+  .reasons .reasonsTrack {
     display: flex;
     flex-direction: column;
     max-width: 42vw;

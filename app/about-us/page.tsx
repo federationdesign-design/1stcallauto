@@ -16,7 +16,7 @@ import styles from './page.module.css';
 export const metadata: Metadata = {
   title: 'About Us',
   description:
-    'Based in Chawston, close to St Neots and the Black Cat roundabout on the A1, we provide professional vehicle mechanical and auto electrical services for private motorists and local businesses.',
+    'More than 25 years in the motor trade. Vehicle mechanical and auto electrical services in Chawston, near St Neots and the A1, for motorists and local businesses.',
   alternates: { canonical: '/about-us' },
 };
 

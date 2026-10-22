@@ -58,7 +58,7 @@ export const PRIVACY: LegalPage = {
     },
     {
       heading: 'How long we keep your data',
-      content: `• Enquiries that do not lead to any work: [[PLACEHOLDER: how long enquiries are kept]]\n• Customer and job records, including invoices: [[PLACEHOLDER: how long job records are kept]]\n• Website analytics data, if you allowed analytics cookies: [[PLACEHOLDER: Google Analytics data retention period]]`,
+      content: `• Enquiries that do not lead to any work: [[PLACEHOLDER: how long enquiries are kept]]\n• Customer and job records, including invoices: [[PLACEHOLDER: how long job records are kept]]\n• Website analytics data, if you allowed analytics cookies: 14 months`,
     },
     {
       heading: 'Your rights',

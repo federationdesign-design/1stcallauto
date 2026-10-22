@@ -5,7 +5,7 @@ Items that need a decision or an asset from Steve. Work carries on around them.
 ## Open
 
 1. **Tidy `.env.example` header.** It still starts with the six-line note from `agent/env.example.txt` ("Intended contents of .env.example ... then delete this copy"). Claude cannot edit `.env*` files; please delete those first six lines.
-2. **Set env vars in Vercel and `.env.local`.** At minimum `NEXT_PUBLIC_WHATSAPP_NUMBER=447725629835` (the WhatsApp button reads it and is hidden without it), plus `RESEND_API_KEY`, `NOTIFICATION_EMAIL_FROM` and `CONTACT_EMAIL_TO` before the contact form goes live. Plus `NEXT_PUBLIC_GA_MEASUREMENT_ID`, `GOOGLE_PLACES_API_KEY` and `GOOGLE_PLACE_ID` (items 5 and 6).
+2. **Set env vars in Vercel and `.env.local`.** At minimum `NEXT_PUBLIC_WHATSAPP_NUMBER=447725629835` (the WhatsApp button reads it and is hidden without it), plus `RESEND_API_KEY`, `NOTIFICATION_EMAIL_FROM` and `CONTACT_EMAIL_TO` before the contact form goes live. Plus `NEXT_PUBLIC_GA_MEASUREMENT_ID` in Vercel (the Google Places values are done).
 3. **"Cambridgeshire" in the copy (client to confirm).** Steve has supplied the address as The Old Foundry, Chawston Lane, Chawston, Bedford MK44 3BH, which is Bedfordshire. The page copy still says Cambridgeshire, left as written for now:
    - Home hero panel: "near St Neots in Chawston, Cambridgeshire near Wyboston Lakes Golf Course"
    - About body copy: "Based in Chawston, Cambridgeshire, close to St Neots and the Black Cat roundabout on the A1"
@@ -15,14 +15,35 @@ Items that need a decision or an asset from Steve. Work carries on around them.
    - the business's legal name, and whether it is a limited company (number and registered office) or a sole trader;
    - the "Last updated" date (normally the launch date);
    - how long enquiries and job records are kept;
-   - the workshop's own terms, if the client wants them on the site (estimates, payment, parts and labour guarantees, uncollected vehicles). The current Terms cover use of the website only;
-   - the Google Analytics retention period (see item 6).
+   - the workshop's own terms, if the client wants them on the site (estimates, payment, parts and labour guarantees, uncollected vehicles). The current Terms cover use of the website only.
    The legal text is a plain-English draft, not legal advice; worth a read by the client.
-5. **Google reviews: Place ID.** Claude cannot read `.env.local`, so please run this once the key is in it:
-   `! node --env-file=.env.local agent/tools/find-place-id.mjs`
-   It prints the Place ID, name and address of each match (never the key). Add the right one to `.env.local` and Vercel as `GOOGLE_PLACE_ID`, and add `GOOGLE_PLACE_ID=` and `GOOGLE_PLACES_API_KEY=` to `.env.example`. The key needs **Places API (New)** enabled in Google Cloud (see Phase 8 decisions). Until both are set, Testimonials shows the three testimonials only.
-6. **GA4 property settings** (in Google Analytics, not code): set data retention (2 or 14 months) and tell me which, for the privacy policy; leave Google signals off; and set `NEXT_PUBLIC_GA_MEASUREMENT_ID` in Vercel.
-7. **No static map image.** Phase 8 asks for a static map image before consent; the assets have none. The approved placeholder panel (address, "Load map", "Get directions") is used instead. Send an image if you want one there.
+
+5. **Page titles and descriptions (for approval).** Titles show in the browser tab and in Google results; every page has its own. Edit any of them:
+
+   | Page | Title | Description |
+   |---|---|---|
+   | Home | Vehicle Mechanic & Auto Electrics near St Neots \| 1st Call Auto | Vehicle mechanic and auto electrical specialists in Chawston, near St Neots and the A1. Servicing, repairs, auto electrics and diagnostics for cars and vans. |
+   | About Us | About Us \| 1st Call Auto | More than 25 years in the motor trade. Vehicle mechanical and auto electrical services in Chawston, near St Neots and the A1, for motorists and local businesses. |
+   | Services | Vehicle Servicing & Repairs near St Neots \| 1st Call Auto | Auto electrics, mechanical repairs, servicing and diagnostics from our workshop in Chawston, near St Neots, with over 25 years' experience in the motor trade. |
+   | Auto Electrical | Auto Electrical Specialists near St Neots \| 1st Call Auto | Auto electrical diagnostics, repairs, installations and modifications across St Neots and the surrounding area, with more than 25 years' experience. |
+   | Mechanical | Vehicle Mechanical Repairs & Servicing near St Neots \| 1st Call Auto | Mechanical repairs and servicing for cars and light commercial vehicles from our workshop in Chawston, near St Neots, with over 25 years' experience. |
+   | Diagnostics | Fault Finding & Vehicle Diagnostics near St Neots \| 1st Call Auto | Professional fault finding and vehicle diagnostics for cars and light commercial vehicles from our workshop in Chawston, near St Neots. |
+   | Testimonials | Testimonials \| 1st Call Auto | What clients say about 1st Call Auto, vehicle mechanic and auto electrical engineer in Chawston, near St Neots. |
+   | Contact | Contact \| 1st Call Auto | Contact 1st Call Auto in Chawston, near St Neots: call 01480 212766, message us on WhatsApp or send an enquiry for a free quote. |
+   | Privacy Policy | Privacy Policy \| 1st Call Auto | How 1st Call Auto collects, uses and protects your personal data under UK GDPR. |
+   | Terms | Terms & Conditions \| 1st Call Auto | Terms and conditions for using the 1st Call Auto website. |
+   | Cookies Policy | Cookies Policy \| 1st Call Auto | The cookies the 1st Call Auto website uses and how to change your choice. |
+
+6. **"PE19" in the header strip (client to confirm).** The mockups' strip says "Vehicle mechanic & auto electrical engineer in PE19", and that is also the site's default description. PE19 is the St Neots postcode area; the supplied address is MK44 3BH. Left as drawn, like the Cambridgeshire mentions (item 3). The structured data uses the supplied address only.
+7. **Opening hours (optional).** Not supplied, so they are not on the site or in the structured data. Google uses them if present; send them if the client wants them shown.
+
+## Phase 9 decisions (for information, shout if any is wrong)
+
+- **Structured data:** an AutoRepair (LocalBusiness) block on Home with the name "1st Call Auto", phone, email, the supplied address, the logo, the Home photo and the Google Maps link. No coordinates, hours, prices or star rating: none were supplied, and Google does not allow ratings taken from Google reviews.
+- **Redirects:** implemented as approved (see `REDIRECTS.md`). Tested against a production build: every old WordPress URL ends on Home with 308s, the WordPress system paths return 410, and real pages and unknown URLs (404) are unaffected.
+- **Sitemap and robots:** `/sitemap.xml` lists all 11 pages; `/robots.txt` allows everything except `/api/` and points to the sitemap. Both use `NEXT_PUBLIC_SITE_URL`, falling back to `https://1st-call.uk`.
+- **Accessibility:** axe (WCAG 2.1 AA plus best practice) reports no issues on any page at 390px or 1280px. Fixes made: the floating WhatsApp button now sits in a labelled landmark, Home no longer has two regions with the same name, and the swipe tracks can be reached by keyboard while they scroll. The carousel dots also respond to the left and right arrow keys. Carousels never move on their own. Every image has alt text (decorative ones are empty), every page has exactly one `h1`, and every focused control shows an outline.
+- **Bug found and fixed:** on desktop, Home's three intro columns could render as one very wide row, depending on the order the stylesheets loaded. The page rules now always win.
 
 ## Phase 8 decisions (for information, shout if any is wrong)
 
@@ -91,6 +112,9 @@ Items that need a decision or an asset from Steve. Work carries on around them.
 ## Resolved (22 October 2026)
 
 - **Testimonial slots:** replaced by live Google reviews.
+- **Google Place ID:** added to `.env.local` and Vercel; the env example file lists both Google lines (committed).
+- **GA4:** data retention 14 months (now in the privacy policy), Google signals off.
+- **Static map image:** none; keep the approved map panel.
 - **Form wording:** approved as written.
 - **Search Console:** verified by DNS; no verification meta tag.
 

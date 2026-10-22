@@ -20,9 +20,9 @@ const ELECTRICAL_PANEL =
 export const MECHANICAL: ServicePage = {
   path: '/vehicle-mechanical-repairs-servicing',
   title: 'Vehicle Mechanical Repairs & Servicing',
-  metaTitle: 'Vehicle Mechanical Repairs & Servicing',
+  metaTitle: 'Vehicle Mechanical Repairs & Servicing near St Neots',
   metaDescription:
-    'Mechanical repairs and servicing for cars and light commercial vehicles from our workshop in Chawston, near St Neots, with more than 25 years’ experience in the motor trade.',
+    'Mechanical repairs and servicing for cars and light commercial vehicles from our workshop in Chawston, near St Neots, with over 25 years’ experience.',
   image: MECHANICAL_IMAGE,
   panel:
     'Keeping your vehicle reliable isn’t just about fixing problems when something goes wrong. Regular servicing, maintenance and timely repairs can help prevent more serious issues and keep your car or van performing as it should.',
@@ -36,9 +36,9 @@ export const MECHANICAL: ServicePage = {
 export const AUTO_ELECTRICAL: ServicePage = {
   path: '/auto-electrical-specialists',
   title: 'Auto Electrical Specialists',
-  metaTitle: 'Auto Electrical Specialists',
+  metaTitle: 'Auto Electrical Specialists near St Neots',
   metaDescription:
-    'Auto electrical diagnostics, repairs, installations and modifications for customers across St Neots and the surrounding area, with more than 25 years’ experience.',
+    'Auto electrical diagnostics, repairs, installations and modifications across St Neots and the surrounding area, with more than 25 years’ experience.',
   // Reuses the About photo, per Steve.
   image: {
     desktop: { src: '/images/about_img.jpg', width: 1920, height: 1205 },
@@ -140,7 +140,7 @@ export const AUTO_ELECTRICAL: ServicePage = {
 export const DIAGNOSTICS: ServicePage = {
   path: '/fault-finding-vehicle-diagnostics',
   title: 'Fault Finding & Vehicle Diagnostics',
-  metaTitle: 'Fault Finding & Vehicle Diagnostics',
+  metaTitle: 'Fault Finding & Vehicle Diagnostics near St Neots',
   metaDescription:
     'Professional fault finding and vehicle diagnostics for cars and light commercial vehicles from our workshop in Chawston, near St Neots.',
   image: {
@@ -250,9 +250,9 @@ export const DIAGNOSTICS: ServicePage = {
 export const SERVICING: ServicePage = {
   path: '/services',
   title: 'Servicing your vehicle',
-  metaTitle: 'Servicing your vehicle',
+  metaTitle: 'Vehicle Servicing & Repairs near St Neots',
   metaDescription:
-    'Auto electrical work, mechanical repairs, servicing and vehicle diagnostics from our workshop in Chawston, near St Neots, with more than 25 years’ experience in the motor trade.',
+    'Auto electrics, mechanical repairs, servicing and diagnostics from our workshop in Chawston, near St Neots, with over 25 years’ experience in the motor trade.',
   image: MECHANICAL_IMAGE,
   panel: ELECTRICAL_PANEL,
   intro: {

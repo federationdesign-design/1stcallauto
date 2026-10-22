@@ -1,6 +1,7 @@
 // Home. Copy is exactly as in the Home mockups, apart from the typo fixes
 // listed in agent/COPY_FIXES.md.
 
+import type { Metadata } from 'next';
 import Image from 'next/image';
 import { Hero } from './components/hero/Hero';
 import { TickList } from './components/ui/TickList';
@@ -9,7 +10,15 @@ import { SpeechBubble } from './components/testimonials/SpeechBubble';
 import { FaqList } from './components/faq/FaqList';
 import { TESTIMONIALS } from './data/testimonials';
 import { FAQS } from './data/faqs';
+import { LocalBusinessJsonLd } from './components/seo/LocalBusinessJsonLd';
 import styles from './page.module.css';
+
+export const metadata: Metadata = {
+  title: { absolute: 'Vehicle Mechanic & Auto Electrics near St Neots | 1st Call Auto' },
+  description:
+    'Vehicle mechanic and auto electrical specialists in Chawston, near St Neots and the A1. Servicing, repairs, auto electrics and diagnostics for cars and vans.',
+  alternates: { canonical: '/' },
+};
 
 const INTRO_COLUMNS = [
   {
@@ -31,6 +40,7 @@ const [savedMeMoney, waterCorrosion, carAlarm] = TESTIMONIALS;
 export default function Home() {
   return (
     <>
+      <LocalBusinessJsonLd />
       <Hero
         variant="home"
         title={
@@ -72,7 +82,7 @@ export default function Home() {
         />
       </Hero>
 
-      <section className={styles.intro} aria-label="What we do">
+      <div className={styles.intro}>
         <Carousel label="What we do" trackClassName={styles.introTrack} slideClassName={styles.introColumn}>
           {INTRO_COLUMNS.map((column) => (
             <div key={column.heading}>
@@ -81,7 +91,7 @@ export default function Home() {
             </div>
           ))}
         </Carousel>
-      </section>
+      </div>
 
       <section className={styles.testimonials} aria-labelledby="clients-heading">
         <h2 id="clients-heading" className={styles.sectionHeading}>
