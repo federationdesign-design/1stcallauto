@@ -1,10 +1,12 @@
 // Layout shared by Services and the three specialist pages: hero with the
 // "Saved me money" bubble, a centred intro over a rule, then three columns
 // of white cards (stacked in reading order on mobile: left column, middle,
-// then right).
+// then right). On the Services overview each card is a specialist page's
+// title and opening line, linking to that page.
 
 import type { Metadata } from 'next';
 import Image from 'next/image';
+import Link from 'next/link';
 import { Hero } from '../hero/Hero';
 import { TickList } from '../ui/TickList';
 import { SpeechBubble } from '../testimonials/SpeechBubble';
@@ -40,13 +42,23 @@ export function ServicePageView({ page }: { page: ServicePage }) {
         <p>{page.intro.body}</p>
       </div>
 
-      <div className={styles.columns}>
-        {page.columns.map((column, index) => (
+      <div className={page.links ? `${styles.columns} ${styles.overview}` : styles.columns}>
+        {page.columns?.map((column, index) => (
           <div key={index} className={styles.column}>
             {column.map((card) => (
               <Card key={card.heading} card={card} />
             ))}
           </div>
+        ))}
+        {page.links?.map((linked) => (
+          <section key={linked.path} className={`${styles.card} ${styles.linkCard}`}>
+            <h2 className={styles.heading}>
+              <Link href={linked.path} className={styles.cardLink}>
+                {linked.title}
+              </Link>
+            </h2>
+            <p>{linked.panel}</p>
+          </section>
         ))}
       </div>
     </>

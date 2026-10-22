@@ -4,25 +4,26 @@ Items that need a decision or an asset from Steve. Work carries on around them.
 
 ## Open
 
-1. **Two cut-off sentences on Services and Mechanical.** Both pages share these cards, and both sentences stop mid-sentence in the mockups. Each has a placeholder until you supply the ending:
-   - "Mechanical Fault Finding & Repairs": "If your vehicle cannot be driven safely or is a complete non-starter, we can also arrange collection from your home or". (The Auto Electrical and Diagnostics pages end the same idea with "from your home or workplace.")
-   - "Preparing for MOT": "This means you can deal with the mechanical work and MOT process", with no ending.
-2. **Tidy `.env.example` header.** It still starts with the six-line note from `agent/env.example.txt` ("Intended contents of .env.example ... then delete this copy"). Claude cannot edit `.env*` files; please delete those first six lines.
-3. **Set env vars in Vercel and `.env.local`.** At minimum `NEXT_PUBLIC_WHATSAPP_NUMBER=447725629835` (the WhatsApp button reads it and is hidden without it), plus `RESEND_API_KEY`, `NOTIFICATION_EMAIL_FROM` and `CONTACT_EMAIL_TO` before the contact form goes live. GA and Search Console values when you have them.
-4. **"Cambridgeshire" in the copy (client to confirm).** Steve has supplied the address as The Old Foundry, Chawston Lane, Chawston, Bedford MK44 3BH, which is Bedfordshire. The page copy still says Cambridgeshire, left as written for now:
+1. **Tidy `.env.example` header.** It still starts with the six-line note from `agent/env.example.txt` ("Intended contents of .env.example ... then delete this copy"). Claude cannot edit `.env*` files; please delete those first six lines.
+2. **Set env vars in Vercel and `.env.local`.** At minimum `NEXT_PUBLIC_WHATSAPP_NUMBER=447725629835` (the WhatsApp button reads it and is hidden without it), plus `RESEND_API_KEY`, `NOTIFICATION_EMAIL_FROM` and `CONTACT_EMAIL_TO` before the contact form goes live. GA and Search Console values when you have them.
+3. **"Cambridgeshire" in the copy (client to confirm).** Steve has supplied the address as The Old Foundry, Chawston Lane, Chawston, Bedford MK44 3BH, which is Bedfordshire. The page copy still says Cambridgeshire, left as written for now:
    - Home hero panel: "near St Neots in Chawston, Cambridgeshire near Wyboston Lakes Golf Course"
    - About body copy: "Based in Chawston, Cambridgeshire, close to St Neots and the Black Cat roundabout on the A1"
+   - Service pages: "Based in Chawston, Cambridgeshire" and "throughout Cambridgeshire and Bedfordshire".
    The address, map and (Phase 9) structured data use the supplied address.
+
+## Phase 6 follow-up decisions (for information, shout if any is wrong)
+
+- **Services overview cards** use each page's title as the heading and its hero panel paragraph (the line under the page title) as the text. The heading is the link and the whole card is clickable. No "Read more" style button, since that would be new copy.
+- **The Mechanical card repeats the Services intro.** Mechanical's opening line ("Keeping your vehicle reliable isn't just about fixing problems...") is also the bold first paragraph of the Services intro, so it appears twice on Services. Likewise the Services hero panel is the Auto Electrical opening line. Both are as drawn; the client may want a fresh line for one of each.
+- **Services meta description** now describes the overview (auto electrics, mechanical repairs, servicing and diagnostics, Chawston, 25 years) instead of the mechanical page.
 
 ## Phase 6 decisions (for information, shout if any is wrong)
 
-- **"Air con service" on the Home hero links to Services** ("Servicing your vehicle"). No page covers air conditioning on its own; About mentions "air-conditioning servicing and re-gassing".
-- **Services is built from its mockup as it stands.** It shares every card with the Mechanical page, and its hero panel is the electrical paragraph ("Modern vehicles rely heavily on their electrical systems...") that also opens Auto Electrical. Worth a look from the client: Services and Mechanical are near duplicates, which search engines can treat as thin content.
 - **Hero images:** Services and Mechanical use the Mechanical photo (as drawn); Auto Electrical reuses the About photo, per Steve.
 - **"Get a free estimate" and "Get quote now"** in the service heroes both go to the quote form (`/contact#quote`), per Steve.
 - **"Call us on WhatsApp"** in the last card of each page is a plain wa.me link, hidden if `NEXT_PUBLIC_WHATSAPP_NUMBER` is not set.
 - **Paragraph spacing in cards** is the same everywhere. The mockups vary (some line breaks have a blank line, some don't); every new line in the mockup is a new paragraph.
-- **Cambridgeshire** also appears in the service page copy ("throughout Cambridgeshire and Bedfordshire", "Based in Chawston, Cambridgeshire"). Left as written; see item 4.
 
 ## Phase 5 decisions (for information, shout if any is wrong)
 
@@ -58,6 +59,10 @@ Items that need a decision or an asset from Steve. Work carries on around them.
 
 ## Resolved (22 October 2026)
 
+- **Cut-off sentences:** "...from your home or workplace." and "...mechanical work and MOT process in one place."
+- **Services:** now a short overview (hero, intro, three cards linking to Auto Electrical, Mechanical and Diagnostics). The duplicated Mechanical cards are removed.
+- **"Air con service" link to Services:** approved.
+
 - **Workshop address:** The Old Foundry, Chawston Lane, Chawston, Bedford MK44 3BH, used everywhere it appears. Map embed and directions link supplied.
 - **WhatsApp button:** top right on all screen sizes.
 - **Map placeholder:** shorter panel, expanding when the map loads. Live map greyscale, full width.
@@ -67,7 +72,6 @@ Items that need a decision or an asset from Steve. Work carries on around them.
 - **Hero testimonial avatar:** use the roundal drawn beside the same testimonial on Home.
 - **Redirects:** table in `REDIRECTS.md` approved. WordPress admin and system paths return 410.
 - **Old `/#section` anchors:** left to land on Home. No client-side script.
-- **Services:** `/services` is built from `serviceing-your-vehicle-desktop.pdf` as it stands.
 - **Reference PDFs:** gitignored and untracked. PNGs stay in git.
 - **Map:** Google Maps embed that loads only after consent. Before consent: a placeholder panel with the address, a "Load map" button that opens the consent choice, and a "Get directions" link to Google Maps. Google Maps is listed in the cookies policy.
 - **Auto Electrical hero:** reuses the About photo.

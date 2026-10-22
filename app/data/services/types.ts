@@ -1,7 +1,8 @@
 // Shape of a service page (Services and the three specialist pages). Each
-// page is a hero, a centred intro and three columns of white cards; the
-// columns are listed left to right as drawn, and stack in that order on
-// mobile.
+// page is a hero, a centred intro, then either three columns of white cards
+// (the specialist pages; columns listed left to right as drawn, stacking in
+// that order on mobile) or, on the Services overview, one card per
+// specialist page linking to it.
 
 import type { HeroImage } from '../../components/hero/Hero';
 
@@ -22,5 +23,6 @@ export type ServicePage = {
   image: HeroImage;
   panel: string; // hero panel paragraph
   intro: { lead: string; body: string };
-  columns: [ServiceCard[], ServiceCard[], ServiceCard[]];
+  columns?: [ServiceCard[], ServiceCard[], ServiceCard[]];
+  links?: ServicePage[]; // overview cards: each page's title and hero panel
 };

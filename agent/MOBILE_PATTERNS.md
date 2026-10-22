@@ -41,3 +41,4 @@ The rules used on Home and About (Phase 5). Later pages follow them unless their
 - The three-column card grid becomes one column of full-width cards in reading order: the left column's cards, then the middle, then the right.
 - Card copy stays centred; ticked lists stay as left-aligned lists inside the card, with the rule and note under them.
 - The centred intro sits above a thin grey rule, inset by the page gutter.
+- Services overview: the three link cards stack in one column like the other cards; on desktop they sit side by side at equal height.

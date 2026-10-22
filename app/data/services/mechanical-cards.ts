@@ -1,7 +1,5 @@
-// Cards shared by Services ("Servicing your vehicle") and Vehicle
-// Mechanical Repairs & Servicing: the two mockups have the same cards in
-// the same places. Two sentences in them end mid-sentence in the mockups;
-// they carry placeholders (see agent/PLACEHOLDERS.md).
+// Cards for Vehicle Mechanical Repairs & Servicing. Two sentences end
+// mid-sentence in the mockup; Steve supplied their endings.
 
 import type { ServiceCard } from './types';
 
@@ -13,7 +11,7 @@ export const MECHANICAL_COLUMNS: [ServiceCard[], ServiceCard[], ServiceCard[]] =
         'Sometimes the problem is obvious. Other times, you may simply notice a new noise, vibration, loss of performance or a change in the way the vehicle feels.',
         'You don’t need to diagnose the problem yourself before bringing the vehicle to us. Our job is to investigate the symptoms, identify the likely cause and recommend the appropriate repair.',
         'We undertake a wide range of general mechanical work on cars and light commercial vehicles, from everyday maintenance through to more involved repair work.',
-        'If your vehicle cannot be driven safely or is a complete non-starter, we can also arrange collection from your home or [[PLACEHOLDER: end of collection sentence]]',
+        'If your vehicle cannot be driven safely or is a complete non-starter, we can also arrange collection from your home or workplace.',
       ],
     },
     {
@@ -62,7 +60,7 @@ export const MECHANICAL_COLUMNS: [ServiceCard[], ServiceCard[], ServiceCard[]] =
         'If your MOT is approaching and you already know the vehicle needs attention, we can carry out repairs and maintenance before it is tested.',
         'Although we do not carry out MOT testing ourselves, we work with a trusted partner garage and can arrange the MOT on your behalf.',
         'If additional repair work is required following the test, we can also help get the vehicle back into the correct condition for its retest.',
-        'This means you can deal with the mechanical work and MOT process [[PLACEHOLDER: end of MOT process sentence]]',
+        'This means you can deal with the mechanical work and MOT process in one place.',
       ],
     },
   ],

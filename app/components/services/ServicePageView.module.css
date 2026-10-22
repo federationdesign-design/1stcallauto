@@ -107,6 +107,40 @@
   }
 }
 
+/* Services overview: the whole card is the link's hit area (the heading
+   link is stretched over it), so there is one link per card for screen
+   readers. */
+.linkCard {
+  position: relative;
+}
+
+.cardLink {
+  color: var(--green);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+
+.cardLink::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-card);
+}
+
+.cardLink:focus-visible {
+  outline: none;
+}
+
+.cardLink:focus-visible::after {
+  outline: 2px solid var(--green);
+  outline-offset: 3px;
+}
+
+.linkCard:hover .cardLink {
+  text-decoration-thickness: 2px;
+}
+
 @media (min-width: 1024px) {
   .intro {
     margin: 0 5.21vw 0 7.34vw;
@@ -123,6 +157,11 @@
 
   .column {
     gap: 2vw;
+  }
+
+  /* Overview cards are all one height. */
+  .overview {
+    align-items: stretch;
   }
 
   .card {

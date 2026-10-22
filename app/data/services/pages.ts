@@ -1,8 +1,9 @@
 // The four service pages, copy exactly as in their desktop mockups apart
 // from the fixes in agent/COPY_FIXES.md. Services ("Servicing your
-// vehicle") is built from its mockup as it stands, per Steve: it shares
-// its cards with the Mechanical page, and its hero panel uses the electrical
-// paragraph drawn there.
+// vehicle") keeps the hero and intro from its mockup; per Steve, its
+// duplicated Mechanical cards are replaced by one card per specialist page,
+// using that page's title and opening line. It comes last because it
+// refers to the other three.
 
 import type { ServicePage } from './types';
 import { MECHANICAL_COLUMNS } from './mechanical-cards';
@@ -15,21 +16,6 @@ const MECHANICAL_IMAGE = {
 
 const ELECTRICAL_PANEL =
   'Modern vehicles rely heavily on their electrical systems, and when something goes wrong, finding the actual cause of the problem can be more difficult than replacing the faulty part.';
-
-export const SERVICING: ServicePage = {
-  path: '/services',
-  title: 'Servicing your vehicle',
-  metaTitle: 'Servicing your vehicle',
-  metaDescription:
-    'Car and van servicing, mechanical repairs and MOT preparation from our workshop in Chawston, near St Neots, with more than 25 years’ experience in the motor trade.',
-  image: MECHANICAL_IMAGE,
-  panel: ELECTRICAL_PANEL,
-  intro: {
-    lead: 'Keeping your vehicle reliable isn’t just about fixing problems when something goes wrong. Regular servicing, maintenance and timely repairs can help prevent more serious issues and keep your car or van performing as it should.',
-    body: 'At 1st Call, we provide a wide range of mechanical repair and servicing work from our workshop in Chawston, near St Neots. With more than 25 years’ experience in the motor trade, we work with private motorists, tradespeople and small businesses throughout Cambridgeshire and Bedfordshire. Whether your vehicle has developed a fault, needs routine maintenance or simply doesn’t feel right when you drive it, we can inspect the vehicle, identify the problem and advise you on the work required.',
-  },
-  columns: MECHANICAL_COLUMNS,
-};
 
 export const MECHANICAL: ServicePage = {
   path: '/vehicle-mechanical-repairs-servicing',
@@ -259,4 +245,19 @@ export const DIAGNOSTICS: ServicePage = {
       },
     ],
   ],
+};
+
+export const SERVICING: ServicePage = {
+  path: '/services',
+  title: 'Servicing your vehicle',
+  metaTitle: 'Servicing your vehicle',
+  metaDescription:
+    'Auto electrical work, mechanical repairs, servicing and vehicle diagnostics from our workshop in Chawston, near St Neots, with more than 25 years’ experience in the motor trade.',
+  image: MECHANICAL_IMAGE,
+  panel: ELECTRICAL_PANEL,
+  intro: {
+    lead: 'Keeping your vehicle reliable isn’t just about fixing problems when something goes wrong. Regular servicing, maintenance and timely repairs can help prevent more serious issues and keep your car or van performing as it should.',
+    body: 'At 1st Call, we provide a wide range of mechanical repair and servicing work from our workshop in Chawston, near St Neots. With more than 25 years’ experience in the motor trade, we work with private motorists, tradespeople and small businesses throughout Cambridgeshire and Bedfordshire. Whether your vehicle has developed a fault, needs routine maintenance or simply doesn’t feel right when you drive it, we can inspect the vehicle, identify the problem and advise you on the work required.',
+  },
+  links: [AUTO_ELECTRICAL, MECHANICAL, DIAGNOSTICS],
 };
