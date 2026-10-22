@@ -34,10 +34,10 @@
   padding: var(--space-m) var(--gutter) 0;
 }
 
-/* 170px at 430 to 243px at 1920, still scaling above. */
+/* --logo-w in globals.css: 170px at 430 to 243px at 1920. */
 .logo {
   display: block;
-  width: clamp(10.625rem, 9.306rem + 4.9vw, 17.9rem);
+  width: var(--logo-w);
 }
 .logo img {
   width: 100%;

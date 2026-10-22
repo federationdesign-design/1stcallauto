@@ -52,6 +52,10 @@
   --space-l:    clamp(2rem, 1.4228rem + 2.1477vw, 5.1812rem);
   --space-xl:   clamp(3rem, 1.8817rem + 4.1611vw, 9.1636rem);
   --gutter:     clamp(1.25rem, -0.6619rem + 7.1141vw, 11.7878rem);
+
+  /* Header logo width, 170px at 430 to 243px at 1920, still scaling above.
+     Shared so the title band can clear the mobile header exactly. */
+  --logo-w:     clamp(10.625rem, 9.306rem + 4.9vw, 17.9rem);
   --radius-card: clamp(1.5rem, 1.2114rem + 1.0738vw, 3.0906rem);
 
   --line-height: 1.4;

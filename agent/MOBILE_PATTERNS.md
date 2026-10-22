@@ -45,7 +45,7 @@ The rules used on Home and About (Phase 5). Later pages follow them unless their
 
 ## Pages with no mockup (Phase 7)
 
-- Testimonials, Contact and the legal pages open with a green title band under the header; on mobile its top padding clears the WhatsApp button so the title never sits under it.
+- Testimonials, Contact and the legal pages open with a green title band under the header; on mobile the title sits `--space-l` below the logo row, the same space the band leaves below it. The WhatsApp button is bottom right on mobile, so the band no longer has to clear it.
 - Testimonials: one bubble per row, as on Home.
 - Contact: the details card, then the form card, full width. Form labels sit above their fields.
 - Legal pages: text at the page gutter; cookie tables become one white card per cookie, each value labelled.
