@@ -1,14 +1,16 @@
-/* Floating WhatsApp button, fixed top right on every viewport (Steve,
-   22 October 2026). Desktop matches the mockup: 160px at x 1700, y 56 on
-   the 1920 mockup. Mobile sits just below the hamburger, which owns the
-   top-right corner there. 72px at 430 up to 160px at 1920.
-   Mobile: under the header (50) so the open mobile menu covers it.
-   Desktop: above the header (55). The header bar spans the full width and
-   is transparent, so at 45 the button showed through it but sat under
-   it. Always under the cookie banner (1000). */
+/* Floating WhatsApp button (Steve, 22 October 2026).
+   Mobile (below 1024px): fixed bottom right, as in the mobile mockup, at
+   the page gutter from the right and the bottom, clear of the iPhone home
+   bar. While the cookie banner is open it sits just above the banner
+   (CookieBanner publishes its height as --cookie-banner-h), so neither
+   hides the other. Under the header (50) so the open mobile menu covers it.
+   Desktop: top right as in the 1920 mockup, 160px at x 1700, y 56, and
+   above the header (55): the header bar spans the full width and is
+   transparent, so at 45 the button would sit under it. Always under the
+   cookie banner (1000). 72px at 430 up to 160px at 1920. */
 .button {
   position: fixed;
-  top: 6rem;
+  bottom: calc(var(--cookie-banner-h, env(safe-area-inset-bottom, 0px)) + var(--gutter));
   right: var(--gutter);
   z-index: 45;
   width: clamp(4.5rem, 2.9125rem + 5.906vw, 13.25rem);
@@ -36,6 +38,7 @@
 @media (min-width: 1024px) {
   .button {
     top: 2.92vw;
+    bottom: auto;
     right: 3.125vw;
     z-index: 55;
   }

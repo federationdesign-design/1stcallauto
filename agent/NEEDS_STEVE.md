@@ -85,7 +85,7 @@ With Steve's Services description applied.
 - **About FAQ heading** is hidden on desktop (not drawn) but kept for screen readers.
 - **Home hero tick list** is two columns from 1440px; below that the panel is too narrow, so it is one column.
 - **No links in the hero tick lists** ("Get a free estimate" etc.), as drawn. They could link to the contact form or service pages if wanted.
-- **WhatsApp button** is fixed top right: beside the nav on desktop as drawn, and just below the hamburger on mobile (the hamburger owns the corner there).
+- **WhatsApp button** is fixed top right: beside the nav on desktop as drawn. On mobile it is fixed bottom right as in the mobile mockup (Steve, 22 October 2026), and sits just above the cookie banner while that is open.
 - **Map placeholder** is now only as tall as the address and buttons; the band grows to the drawn map size once the map loads.
 
 ## Phase 4 decisions (for information, shout if any is wrong)
@@ -126,7 +126,7 @@ With Steve's Services description applied.
 - **"Air con service" link to Services:** approved.
 
 - **Workshop address:** The Old Foundry, Chawston Lane, Chawston, Bedford MK44 3BH, used everywhere it appears. Map embed and directions link supplied.
-- **WhatsApp button:** top right on all screen sizes.
+- **WhatsApp button:** top right on desktop; bottom right on mobile (below 1024px).
 - **Map placeholder:** shorter panel, expanding when the map loads. Live map greyscale, full width.
 - **Phone in the mobile menu and Cookie settings link:** approved.
 - **`.env.example`:** created by Steve and committed.

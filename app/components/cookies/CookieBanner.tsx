@@ -5,7 +5,7 @@
 //  2. The preferences panel, reopened any time via the footer "Cookie settings"
 //     link (see CookieSettingsLink below) or the map's "Load map" button.
 
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { useCookieConsent } from './CookieConsentProvider';
 import type { ConsentCategories } from './consent';
@@ -35,6 +35,23 @@ function ConsentPanel() {
 
   const inPrefsMode = showPrefs || settingsOpen;
 
+  // Publish the panel's height while it is open, so the floating WhatsApp
+  // button can sit just above it on mobile instead of being hidden under it.
+  const panelRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const panel = panelRef.current;
+    if (!panel) return;
+    const root = document.documentElement;
+    const observer = new ResizeObserver(() => {
+      root.style.setProperty('--cookie-banner-h', `${panel.offsetHeight}px`);
+    });
+    observer.observe(panel);
+    return () => {
+      observer.disconnect();
+      root.style.removeProperty('--cookie-banner-h');
+    };
+  }, []);
+
   function handleSave() {
     const categories: ConsentCategories = { necessary: true, analytics, maps };
     savePreferences(categories);
@@ -49,7 +66,7 @@ function ConsentPanel() {
 
   return (
     <div className={styles.overlay} role="dialog" aria-modal="true" aria-label="Cookie preferences">
-      <div className={styles.panel}>
+      <div className={styles.panel} ref={panelRef}>
         {settingsOpen && (
           <button className={styles.close} onClick={handleClose} aria-label="Close cookie settings">
             &times;
