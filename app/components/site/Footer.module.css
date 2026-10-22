@@ -1,0 +1,104 @@
+/* Footer. Mobile first from the mobile mockups: centred logo then legal
+   links. Desktop adds the page links above the logo. */
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-l);
+  padding: var(--space-xl) var(--gutter) var(--space-m);
+  background: var(--green);
+  color: var(--white);
+}
+
+.pages {
+  display: none;
+}
+
+.list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  row-gap: var(--space-2xs);
+}
+
+/* The "|" separators between links. */
+.list > li + li::before {
+  content: '';
+  display: inline-block;
+  width: 1px;
+  height: 1em;
+  margin: 0 0.6em;
+  vertical-align: -0.15em;
+  background: currentColor;
+}
+
+.list a:hover,
+.list button:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.current {
+  font-weight: 700;
+}
+
+/* 240px wide on the 430 mockup, 240px on the 1920 mockup. */
+.logo {
+  display: block;
+  width: 15rem;
+}
+.logo img {
+  width: 100%;
+  height: auto;
+}
+
+/* Legal links, with Cookie settings on its own line beneath them (kept out
+   of the separated row so the drawn three-link row stays intact). The group
+   owns the small gap between the two; the footer gap sits around it. */
+.legalGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xs);
+  /* Scales down a touch on narrow phones so the three links keep to one
+     line, as drawn (fits down to a 320px screen). */
+  font-size: min(var(--fs-small), 3.4vw);
+  white-space: nowrap;
+}
+
+.cookieSettings {
+  opacity: 0.8;
+}
+.cookieSettings:hover {
+  opacity: 1;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@media (min-width: 1024px) {
+  .footer {
+    gap: var(--space-m);
+    padding: var(--space-m) var(--gutter);
+  }
+
+  .pages {
+    display: block;
+    font-size: var(--fs-nav);
+  }
+
+  .pages .list > li + li::before {
+    width: 2px;
+    margin: 0 1.5vw;
+  }
+
+  .logo {
+    width: 12.5vw;
+  }
+
+  .legalGroup {
+    font-size: var(--fs-nav);
+  }
+}

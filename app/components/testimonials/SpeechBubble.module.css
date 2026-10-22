@@ -1,0 +1,85 @@
+/* Speech bubble: stretched SVG body, fixed-size tail under it at 62% across
+   (x 330 of 533 on the mockup), and the avatar centred under the tail apex.
+   The figure reserves room below itself for the tail and avatar, so the
+   next element's gap starts below the avatar. */
+
+.bubble {
+  --tail-w: clamp(3.5rem, 3.23rem + 1vw, 5rem);
+  --tail-h: calc(var(--tail-w) * 95 / 80);
+  --tail-tuck: 1.25rem; /* how far the tail's top sits up inside the body */
+  --avatar-size: clamp(6.25rem, 5.6rem + 1.6vw, 9rem);
+  --avatar-gap: var(--space-2xs);
+
+  position: relative;
+  padding: var(--space-l) var(--space-l) var(--space-l) calc(var(--space-l) + 0.3em);
+  margin-bottom: calc(var(--tail-h) - var(--tail-tuck) + var(--avatar-gap) + var(--avatar-size));
+}
+
+.body {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.tail {
+  position: absolute;
+  left: 62%;
+  top: calc(100% - var(--tail-tuck));
+  width: var(--tail-w);
+  height: var(--tail-h);
+}
+
+.green path {
+  fill: var(--green);
+}
+.green {
+  color: var(--white);
+}
+
+.sage path {
+  fill: var(--sage);
+}
+.sage {
+  color: var(--white);
+}
+
+.white path {
+  fill: var(--white);
+}
+.white {
+  color: var(--ink);
+}
+
+.quote {
+  position: relative;
+  font-style: italic;
+}
+
+.heading {
+  font-size: var(--fs-quote);
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: var(--space-s);
+}
+
+.text {
+  font-size: var(--fs-lead);
+  line-height: 1.35;
+}
+
+.text + .text {
+  margin-top: 1.35em;
+}
+
+/* Centred on the tail apex: tail left + 35/80 of its width. */
+.avatar {
+  position: absolute;
+  top: calc(100% - var(--tail-tuck) + var(--tail-h) + var(--avatar-gap));
+  left: calc(62% + var(--tail-w) * 35 / 80);
+  width: var(--avatar-size);
+  height: var(--avatar-size);
+  border-radius: 50%;
+  object-fit: cover;
+  transform: translateX(-50%);
+}

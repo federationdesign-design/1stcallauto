@@ -36,7 +36,8 @@
   --fs-lead:       clamp(1.125rem, 0.9446rem + 0.6711vw, 2.1191rem);
   --fs-intro:      clamp(1.1875rem, 0.9169rem + 1.0067vw, 2.6787rem);
   --fs-card-title: clamp(1.375rem, 1.1946rem + 0.6711vw, 2.3691rem);
-  --fs-title:      clamp(2.25rem, 1.9614rem + 1.0738vw, 3.8406rem);
+  --fs-title:      clamp(2.25rem, 1.8171rem + 1.6107vw, 4.6359rem);
+  --fs-quote:      clamp(2.375rem, 2.1225rem + 0.9396vw, 3.7668rem);
   --fs-display:    clamp(1.875rem, 1.3339rem + 2.0134vw, 4.8574rem);
   --fs-nav:        clamp(1rem, 0.8557rem + 0.5369vw, 1.7953rem);
 
@@ -60,6 +61,7 @@
 }
 
 html {
+  background-color: var(--cream); /* also fills the reserved scrollbar gutter */
   scroll-behavior: smooth;
   scrollbar-gutter: stable;
   -webkit-text-size-adjust: 100%;
@@ -103,8 +105,10 @@ button {
   color: inherit;
 }
 
+/* Focus ring in the text colour: green on cream and white, white on the
+   green panels, so it always contrasts with what is around it. */
 :focus-visible {
-  outline: 3px solid var(--whatsapp);
+  outline: 3px solid currentColor;
   outline-offset: 3px;
 }
 

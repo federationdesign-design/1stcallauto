@@ -4,13 +4,18 @@ import './globals.css';
 import { CookieConsentProvider } from './components/cookies/CookieConsentProvider';
 import { CookieBanner } from './components/cookies/CookieBanner';
 import { Analytics } from './components/cookies/Analytics';
+import { Header } from './components/site/Header';
+import { LocationBand } from './components/site/LocationBand';
+import { Footer } from './components/site/Footer';
+import { WhatsAppButton } from './components/site/WhatsAppButton';
 
-// Same family and weights as LHM. Italic is added because the mockups set
-// testimonials and section headings in italic. next/font self-hosts the
-// files, so the browser never requests Google Fonts.
+// Same family as LHM, with LHM's weights plus 500 (used by the mockups for
+// page titles and the Our Location heading) and italic (testimonials and
+// section headings). next/font self-hosts the files, so the browser never
+// requests Google Fonts.
 const jakarta = Plus_Jakarta_Sans({
   subsets: ['latin'],
-  weight: ['300', '400', '600', '700'],
+  weight: ['300', '400', '500', '600', '700'],
   style: ['normal', 'italic'],
   display: 'swap',
   variable: '--font-jakarta',
@@ -45,7 +50,11 @@ export default function RootLayout({
     <html lang="en-GB" className={jakarta.variable}>
       <body className={jakarta.className}>
         <CookieConsentProvider>
-          {children}
+          <Header />
+          <main>{children}</main>
+          <LocationBand />
+          <Footer />
+          <WhatsAppButton />
           <Analytics />
           <CookieBanner />
         </CookieConsentProvider>

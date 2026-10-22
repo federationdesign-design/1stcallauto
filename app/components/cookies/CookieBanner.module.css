@@ -145,7 +145,7 @@
   transform: translateX(20px);
 }
 .switch input:focus-visible + .slider {
-  outline: 3px solid var(--whatsapp);
+  outline: 3px solid var(--white);
   outline-offset: 3px;
 }
 

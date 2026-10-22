@@ -1,0 +1,322 @@
+/* Site header, laid over the top of the hero image.
+   Mobile first (from the About mobile mockup): centred logo, hamburger at
+   the right, no phone strip. Desktop from 1024px (the desktop mockups):
+   phone strip, logo at the left and the cream pill navigation.
+   Desktop measurements are converted from the 1920px mockup to vw. */
+
+.header {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 50;
+  color: var(--white);
+}
+
+/* Soft shade behind the header so white text stays readable on any photo. */
+.header::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto;
+  height: 160%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.45), transparent);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.strip {
+  display: none;
+}
+
+.bar {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--space-m) var(--gutter) 0;
+}
+
+/* 170px at 430 to 243px at 1920, still scaling above. */
+.logo {
+  display: block;
+  width: clamp(10.625rem, 9.306rem + 4.9vw, 17.9rem);
+}
+.logo img {
+  width: 100%;
+  height: auto;
+}
+
+.desktopNav {
+  display: none;
+}
+
+/* ── Hamburger ─────────────────────────────── */
+
+.menuButton {
+  position: absolute;
+  right: var(--gutter);
+  top: 50%;
+  transform: translateY(-50%);
+  margin-top: calc(var(--space-m) / 2);
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.burger,
+.burger::before,
+.burger::after {
+  display: block;
+  width: 36px;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--white);
+}
+.burger {
+  position: relative;
+}
+.burger::before,
+.burger::after {
+  content: '';
+  position: absolute;
+  left: 0;
+}
+.burger::before {
+  top: -12px;
+}
+.burger::after {
+  top: 12px;
+}
+
+/* ── Mobile menu ───────────────────────────── */
+
+.mobileMenu {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  overflow-y: auto;
+  background: var(--green);
+  color: var(--white);
+  padding: var(--space-xl) var(--gutter) var(--space-l);
+}
+.mobileMenu[hidden] {
+  display: none;
+}
+
+.closeButton {
+  position: absolute;
+  top: var(--space-s);
+  right: var(--gutter);
+  width: 44px;
+  height: 44px;
+  background: none;
+  border: none;
+  color: var(--white);
+  font-size: 2.5rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.mobileList {
+  list-style: none;
+  font-size: var(--fs-card-title);
+}
+
+.mobileList > li {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.mobileRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mobileRow a {
+  flex: 1;
+  padding: var(--space-s) 0;
+}
+
+.mobileList .current {
+  font-weight: 700;
+}
+
+.expand {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.chevron {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: var(--white);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 0.2s ease;
+}
+.expand[aria-expanded='true'] .chevron {
+  transform: rotate(180deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chevron {
+    transition: none;
+  }
+}
+
+/* No grey-blue flash on tap; the focus ring still shows for keyboards. */
+.menuButton,
+.closeButton,
+.expand {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.mobileSubList {
+  list-style: none;
+  font-size: var(--fs-lead);
+  padding: 0 0 var(--space-s) var(--space-m);
+}
+.mobileSubList a {
+  display: block;
+  padding: var(--space-xs) 0;
+}
+
+.mobileStrip {
+  margin-top: var(--space-l);
+  font-size: var(--fs-body);
+  opacity: 0.9;
+}
+.mobileStrip a {
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ── Desktop ───────────────────────────────── */
+
+@media (min-width: 1024px) {
+  .strip {
+    display: block;
+    padding-top: 1.4vw;
+    text-align: center;
+    font-size: var(--fs-lead);
+    font-weight: 600;
+    line-height: 1.2;
+  }
+
+  .stripPhone:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  /* Logo at x 52, pill from x 340 to x 1612 on the 1920 mockup. */
+  .bar {
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 2.35vw;
+    padding: 0.9vw 16vw 0 2.7vw;
+  }
+
+  .logo {
+    flex-shrink: 0;
+    width: 12.66vw;
+    margin-top: 0.3vw;
+  }
+
+  .menuButton,
+  .mobileMenu {
+    display: none;
+  }
+
+  .desktopNav {
+    display: block;
+    flex: 1;
+  }
+
+  .pill {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 4.2vw;
+    padding: 0 2vw;
+    border-radius: 999px;
+    background: var(--cream);
+    color: var(--green);
+    font-size: var(--fs-nav);
+  }
+
+  .pill > li {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+
+  /* The "|" separators between items. */
+  .pill > li + li::before {
+    content: '';
+    width: 2px;
+    height: 1.1em;
+    margin: 0 1.5vw;
+    background: currentColor;
+  }
+
+  .pill a {
+    display: block;
+    padding: 0.4em 0;
+  }
+
+  .pill a:hover {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
+  .pill .current {
+    font-weight: 700;
+  }
+
+  /* Services dropdown: opens on hover and when focus is inside it, so it
+     works with a mouse and the keyboard. */
+  .dropdown {
+    list-style: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    min-width: max-content;
+    padding: var(--space-xs) 0;
+    border-radius: 20px;
+    background: var(--cream);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    visibility: hidden;
+    transform: translate(-50%, 6px);
+    transition: opacity 0.15s ease, transform 0.15s ease, visibility 0.15s;
+  }
+
+  .hasDropdown:hover .dropdown,
+  .hasDropdown:focus-within .dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, 0);
+  }
+
+  .dropdown a {
+    padding: var(--space-xs) var(--space-m);
+  }
+}
+
+@media (min-width: 1024px) and (prefers-reduced-motion: reduce) {
+  .dropdown {
+    transition: none;
+  }
+}

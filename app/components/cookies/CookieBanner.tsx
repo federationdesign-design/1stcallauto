@@ -148,7 +148,8 @@ function ConsentPanel() {
 }
 
 // Drop this into the footer wherever you want the "Cookie settings" control.
-// It reopens the preferences panel.
+// It reopens the preferences panel. It looks like plain text; the caller
+// styles it to match the links around it.
 export function CookieSettingsLink({ className }: { className?: string }) {
   const { openSettings } = useCookieConsent();
   return (
@@ -163,7 +164,6 @@ export function CookieSettingsLink({ className }: { className?: string }) {
         margin: 0,
         font: 'inherit',
         color: 'inherit',
-        textDecoration: 'underline',
         cursor: 'pointer',
       }}
     >

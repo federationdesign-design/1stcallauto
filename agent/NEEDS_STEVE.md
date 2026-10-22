@@ -5,14 +5,24 @@ Items that need a decision or an asset from Steve. Work carries on around them.
 ## Open
 
 1. **Cut-off sentence on Mechanical.** The "Mechanical Fault Finding & Repairs" card ends "we can also arrange collection from your home or" with no ending. A placeholder goes in until you supply the ending. (The Diagnostics page has "from your home or workplace.")
-2. **Hero testimonial avatar.** The "Saved me money" bubble on inner pages has a small round avatar. I will match the roundal drawn beside the same testimonial on Home; shout if that is wrong.
-3. **Navigation defaults (confirm).** Details in `ROUTES.md`.
-   - "Services" goes to `/services`, with the three specialist pages beneath it (desktop dropdown, expandable list in the mobile menu).
-   - "Find Us" goes to the location section on `/contact`.
-   - "Get a free quote" in the footer goes to the form on `/contact`.
+2. **Tidy `.env.example` header.** It still starts with the six-line note from `agent/env.example.txt` ("Intended contents of .env.example ... then delete this copy"). Claude cannot edit `.env*` files; please delete those first six lines.
+3. **Set env vars in Vercel and `.env.local`.** At minimum `NEXT_PUBLIC_WHATSAPP_NUMBER=447725629835` (the WhatsApp button reads it and is hidden without it), plus `RESEND_API_KEY`, `NOTIFICATION_EMAIL_FROM` and `CONTACT_EMAIL_TO` before the contact form goes live. GA and Search Console values when you have them.
 
-4. **Create `.env.example` (one command).** Claude Code's permission settings deny writing `.env*` files, so the intended contents are in `agent/env.example.txt`. Run: `cp agent/env.example.txt .env.example && git rm agent/env.example.txt`. `.gitignore` already lets `.env.example` through.
-5. **Set env vars in Vercel and `.env.local`.** At minimum `NEXT_PUBLIC_WHATSAPP_NUMBER=447725629835` (the WhatsApp button reads it and is hidden without it), plus `RESEND_API_KEY`, `NOTIFICATION_EMAIL_FROM` and `CONTACT_EMAIL_TO` before the contact form goes live. GA and Search Console values when you have them.
+4. **Workshop address.** Only "Chawston, Cambridgeshire" is known. The street address and postcode are placeholders in the Our Location panel and will be needed for the contact page, legal pages and structured data. The map currently searches for just "Chawston".
+5. **Please double-check the county.** The copy everywhere says Chawston, Cambridgeshire, but the mockup map and Google place Chawston in Bedfordshire (near Wyboston and Roxton). The site follows the copy as instructed; worth confirming before launch so the address, map and structured data agree.
+
+## Phase 4 decisions (for information, shout if any is wrong)
+
+- **WhatsApp button** is fixed bottom right on every viewport, per the runbook. The desktop mockups draw it top right beside the nav; the nav pill keeps its drawn width, so the space to its right is now empty.
+- **Mobile header** follows the About mobile mockup (centred logo, hamburger). The Home mobile mockup shows no header at all, which looked like an omission.
+- **Phone strip on mobile:** neither mobile mockup shows it, so it is not in the mobile header. The same strip text and tel link sit at the bottom of the mobile menu instead.
+- **Inner-page testimonial bubble** shows from 1024px up only; the About mobile mockup drops it.
+- **Footer:** a "Cookie settings" link sits on its own line under the legal links, so visitors can change consent at any time (GDPR). On mobile the footer shows only the logo and legal links, as drawn.
+- **Hero fade** fades the photo towards the panel green as the page scrolls (LHM fades to black). No fade with reduced motion.
+- **Map placeholder** keeps the drawn map size so nothing shifts when the map loads. The live map is shown in greyscale to match the mockup.
+- **Google Maps embed** also loads Google-hosted fonts and scripts inside the iframe once allowed. The cookies policy (Phase 7) will cover this.
+- **Font weight 500** added to the LHM set for page titles and the Our Location heading.
+- **`/shell-preview`** is a temporary, noindexed page for the Phase 4 checkpoint. It is deleted in Phase 5.
 
 ## Phase 3 decisions (for information, shout if any is wrong)
 
@@ -26,6 +36,9 @@ Items that need a decision or an asset from Steve. Work carries on around them.
 
 ## Resolved (22 October 2026)
 
+- **`.env.example`:** created by Steve and committed.
+- **Navigation defaults:** confirmed (Services dropdown, Find Us to `/contact#location`, Get a free quote to `/contact#quote`).
+- **Hero testimonial avatar:** use the roundal drawn beside the same testimonial on Home.
 - **Redirects:** table in `REDIRECTS.md` approved. WordPress admin and system paths return 410.
 - **Old `/#section` anchors:** left to land on Home. No client-side script.
 - **Services:** `/services` is built from `serviceing-your-vehicle-desktop.pdf` as it stands.

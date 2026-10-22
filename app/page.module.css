@@ -1,0 +1,4 @@
+.holding {
+  min-height: 60vh;
+  background: var(--green);
+}

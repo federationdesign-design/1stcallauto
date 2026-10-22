@@ -1,0 +1,48 @@
+.list {
+  list-style: none;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+}
+
+.item + .item {
+  margin-top: 0.2em;
+}
+
+.icon {
+  flex-shrink: 0;
+  width: 1em;
+  height: 1em;
+}
+
+.check {
+  fill: none;
+  stroke-width: 2.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.onGreen .circle {
+  fill: var(--white);
+}
+.onGreen .check {
+  stroke: var(--green);
+}
+
+.onLight .circle {
+  fill: var(--green);
+}
+.onLight .check {
+  stroke: var(--white);
+}
+
+.link {
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+.link:hover {
+  text-decoration-thickness: 2px;
+}

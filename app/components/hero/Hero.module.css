@@ -1,0 +1,126 @@
+/* Page hero.
+   Mobile (About mobile mockup, 430 wide): portrait photo 430 x 553 with the
+   title centred over it, then the green panel full width below.
+   From 768px the landscape photo is used, still stacked.
+   Desktop from 1024px (inner-page desktop mockups, 1920 wide): photo
+   1203px tall, panel at x 0 to 728 and y 573 to 1070, testimonial bubble
+   from x 1332 at y 510, title centred near the bottom of the photo.
+   Desktop values are those measurements converted to vw. */
+
+.hero {
+  position: relative;
+}
+
+.media {
+  position: relative;
+  aspect-ratio: 430 / 553;
+  overflow: hidden;
+  background: var(--green);
+}
+
+.image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Scroll fade overlay, driven by useHeroFade. Fades to the panel green. */
+.fade {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: var(--green);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.title {
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  right: 0;
+  top: 52%;
+  transform: translateY(-50%);
+  padding: 0 var(--gutter);
+  text-align: center;
+  color: var(--white);
+  font-size: var(--fs-title);
+  font-weight: 500;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.35);
+}
+
+.panel {
+  padding: var(--space-xl) var(--space-xl) var(--space-l);
+  background: var(--green);
+  color: var(--white);
+  font-size: var(--fs-lead);
+  line-height: 1.35;
+}
+
+/* Each block in the panel owns the gap above it. */
+.panel > * + * {
+  margin-top: var(--space-s);
+}
+
+/* Tick lists sit indented from the paragraph, as drawn (x 100 against
+   x 61 on desktop, 67 against 48 on mobile). */
+.panel > ul {
+  padding-left: 1.2em;
+}
+
+.aside {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .media {
+    aspect-ratio: 1920 / 1203;
+  }
+}
+
+/* Desktop: a grid laid over the photo. The photo spans every cell, so if the
+   panel or bubble text runs longer than drawn (text is relatively larger
+   below 1920px), the rows grow and the photo grows with them instead of the
+   text spilling out. Rows: 26.56vw to the bubble top, 3.28vw more to the
+   panel top, the panel (min 25.89vw), then the title strip (min 6.93vw).
+   Total minimum 62.66vw, the drawn photo height. */
+@media (min-width: 1024px) {
+  .hero {
+    display: grid;
+    grid-template-columns: 37.92vw 1fr 27.76vw 2.9vw;
+    grid-template-rows: 26.56vw 3.28vw minmax(25.89vw, auto) minmax(6.93vw, auto);
+  }
+
+  .media {
+    grid-area: 1 / 1 / -1 / -1;
+    aspect-ratio: auto;
+  }
+
+  .title {
+    top: auto;
+    bottom: 1.6vw;
+    transform: none;
+  }
+
+  /* align-self: start so a tall bubble growing these rows never stretches
+     the panel; its drawn height is kept as a minimum instead. */
+  .panel {
+    grid-area: 3 / 1 / 4 / 2;
+    align-self: start;
+    position: relative;
+    z-index: 3;
+    min-height: 25.89vw;
+    padding: 4.2vw 3.2vw 3vw;
+    border-radius: 0 1.5vw 1.5vw 0;
+  }
+
+  .aside {
+    grid-area: 2 / 3 / 5 / 4;
+    align-self: start;
+    display: block;
+    position: relative;
+    z-index: 3;
+  }
+}
