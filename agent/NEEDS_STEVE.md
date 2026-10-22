@@ -2,26 +2,18 @@
 
 Items that need a decision or an asset from Steve. Work carries on around them.
 
-## Assets
+## Open
 
-1. **Static map image missing.** Home and About show a greyscale map in the "Our Location" band. No map image is in `~/Downloads/1stcall-assets/`. The GDPR rules mean no Google Maps iframe before consent, so a static image plus a "Get directions" link is the default. Please supply a map image you have the right to use (the one in the mockup looks like a Google Maps screenshot, which has licensing limits).
-2. **No Auto Electrical hero image.** The assets folder has hero images for Home, About, Mechanical and Diagnostics, but not Auto Electrical. The Auto Electrical mockup appears to reuse the About image (blurred and zoomed). Confirm which image to use, or supply one.
-3. **Hero testimonial avatar.** The "Saved me money" bubble on inner pages has a small round avatar. On Home the same testimonial pairs with one of the three roundals (`male_driver_roundal.png`, `female_client_roundal.png`, `headlight_roundal.png`). I will match them as drawn on Home; shout if that is wrong.
+1. **Cut-off sentence on Mechanical.** The "Mechanical Fault Finding & Repairs" card ends "we can also arrange collection from your home or" with no ending. A placeholder goes in until you supply the ending. (The Diagnostics page has "from your home or workplace.")
+2. **Hero testimonial avatar.** The "Saved me money" bubble on inner pages has a small round avatar. I will match the roundal drawn beside the same testimonial on Home; shout if that is wrong.
 
-## Pages and content
+## Resolved (22 October 2026)
 
-4. **No Services overview mockup.** The runbook route map lists `/services` with a desktop design, but no such design was supplied. `serviceing-your-vehicle-desktop.pdf` is titled "Serviceing your vehicle" and is a near-duplicate of the Mechanical page (same cards, reordered intro, and the hero paragraph from Auto Electrical). Is it:
-   - (a) meant to be `/services`,
-   - (b) a separate servicing page, or
-   - (c) an earlier draft of Mechanical to ignore?
-   Until told otherwise I will treat it as (c) and build `/services` from existing components as a simple index of the three specialist pages, using only copy already in the mockups.
-5. **Cut-off sentence on Mechanical.** The "Mechanical Fault Finding & Repairs" card ends "we can also arrange collection from your home or" with no ending. The Diagnostics page has the full version ("from your home or workplace."). I will not invent the ending; a placeholder will go in until you confirm.
-
-## Redirects (Phase 1 checkpoint)
-
-6. **Approve `agent/REDIRECTS.md`** before Phase 9 implements it. Three questions are at the bottom of that file.
-
-## Contact details
-
-7. **Contact email is inconsistent on the live site.** The old page shows the text `info@1st-call.uk` but the link actually goes to `mailto:1stcallautoelectrical@mail.com`. Which address should the new site and legal pages use? Until confirmed it will be a placeholder.
-8. **Facebook page.** The old site links to `https://www.facebook.com/1stCallAutoelectrical` in the menu and testimonials. The mockups show no Facebook link. Leaving it out unless you want it back.
+- **Redirects:** table in `REDIRECTS.md` approved. WordPress admin and system paths return 410.
+- **Old `/#section` anchors:** left to land on Home. No client-side script.
+- **Services:** `/services` is built from `serviceing-your-vehicle-desktop.pdf` as it stands.
+- **Reference PDFs:** gitignored and untracked. PNGs stay in git.
+- **Map:** Google Maps embed that loads only after consent. Before consent: a placeholder panel with the address, a "Load map" button that opens the consent choice, and a "Get directions" link to Google Maps. Google Maps is listed in the cookies policy.
+- **Auto Electrical hero:** reuses the About photo.
+- **Contact email:** `info@1st-call.uk`.
+- **Facebook:** no link.

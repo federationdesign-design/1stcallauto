@@ -1,6 +1,8 @@
 # Redirects (draft for approval)
 
-Status: **awaiting Steve's approval. Not implemented.** Implementation happens in Phase 9 as permanent (308) redirects in `next.config`, plus middleware for any 410s.
+Status: **approved by Steve on 22 October 2026. Not yet implemented.** Implementation happens in Phase 9 as permanent (308) redirects in `next.config`, plus middleware for the 410s.
+
+Decisions: WordPress admin and system paths return 410. Old `/#section` anchors are left to land on Home (option a, no script).
 
 ## What the old site contains
 
