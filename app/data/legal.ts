@@ -91,7 +91,7 @@ export const TERMS: LegalPage = {
     },
     {
       heading: 'Enquiries and quotes',
-      content: `Sending an enquiry or quote request through this website does not create a contract. Any estimate we give is based on the information you provide and may change once we have inspected the vehicle. We will agree the work with you before we carry it out.`,
+      content: `Asking us for an estimate does not create a contract. Any estimate we give is based on the information you provide and may change once we have inspected the vehicle. We will agree the work with you before we carry it out.`,
     },
     {
       heading: 'Work on your vehicle',

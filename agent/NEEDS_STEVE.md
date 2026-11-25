@@ -147,5 +147,5 @@ Done on `build`: the Contact form, `/api/contact` route, Resend wrapper and `res
 
 Still for Steve:
 - **`.env.example`:** still lists `RESEND_API_KEY` and `NOTIFICATION_EMAIL_FROM` (and possibly `CONTACT_EMAIL_TO`). Nothing reads them now; remove them, and the matching Vercel env vars, when convenient. Not edited by the agent.
-- **Terms & Conditions, "Enquiries and quotes":** still says "Sending an enquiry or quote request through this website does not create a contract." There is no website form now. Suggest rewording, for example "Asking us for an estimate does not create a contract." Not changed, as it was outside the requested edits.
+- **Terms & Conditions, "Enquiries and quotes":** done. Now opens "Asking us for an estimate does not create a contract." (Steve, 25 November 2026).
 
