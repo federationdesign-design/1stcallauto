@@ -5,6 +5,10 @@
 export const PHONE_DISPLAY = '01480 212766';
 export const PHONE_HREF = 'tel:+441480212766';
 
+// Replaces every quote and estimate link: there is no quote form, visitors
+// call instead (Steve, 25 November 2026).
+export const CALL_LABEL = `Please call on ${PHONE_DISPLAY}`;
+
 export const EMAIL = 'info@1st-call.uk';
 
 // WhatsApp number: NEXT_PUBLIC_WHATSAPP_NUMBER overrides it; otherwise the

@@ -11,15 +11,13 @@ import { Hero } from '../hero/Hero';
 import { TickList } from '../ui/TickList';
 import { SpeechBubble } from '../testimonials/SpeechBubble';
 import { TESTIMONIALS } from '../../data/testimonials';
-import { whatsappHref } from '../../lib/site';
+import { CALL_LABEL, PHONE_HREF, whatsappHref } from '../../lib/site';
 import type { ServiceCard, ServicePage } from '../../data/services/types';
 import styles from './ServicePageView.module.css';
 
-// Both hero links go to the quote form, per Steve.
-const HERO_LINKS = [
-  { label: 'Get a free estimate', href: '/contact#quote' },
-  { label: 'Get quote now', href: '/contact#quote' },
-];
+// The hero link calls the workshop: there is no quote form (Steve,
+// 25 November 2026).
+const HERO_LINKS = [{ label: CALL_LABEL, href: PHONE_HREF }];
 
 export function serviceMetadata(page: ServicePage): Metadata {
   return {

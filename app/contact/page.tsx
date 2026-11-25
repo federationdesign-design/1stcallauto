@@ -1,19 +1,27 @@
 // Contact. No mockup: built from the site's existing parts. Contact
-// details on the left (phone, WhatsApp, email, address), the enquiry and
-// free quote form on the right (#quote); stacked in that order on mobile.
+// details on the left (phone, WhatsApp, email, address), the call line on
+// the right; stacked in that order on mobile. There is no enquiry form:
+// visitors call instead (Steve, 25 November 2026).
 // The Our Location band below (#location) comes from the layout.
 
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import { PageHeader } from '../components/page-header/PageHeader';
-import { ADDRESS_LINES, DIRECTIONS_HREF, EMAIL, PHONE_DISPLAY, PHONE_HREF, whatsappHref } from '../lib/site';
-import { ContactForm } from './ContactForm';
+import {
+  ADDRESS_LINES,
+  CALL_LABEL,
+  DIRECTIONS_HREF,
+  EMAIL,
+  PHONE_DISPLAY,
+  PHONE_HREF,
+  whatsappHref,
+} from '../lib/site';
 import styles from './page.module.css';
 
 export const metadata: Metadata = {
   title: 'Contact',
   description:
-    'Contact 1st Call Auto in Chawston, near St Neots: call 01480 212766, message us on WhatsApp or send an enquiry for a free quote.',
+    'Contact 1st Call Auto in Chawston, near St Neots: call 01480 212766 or message us on WhatsApp.',
   alternates: { canonical: '/contact' },
 };
 
@@ -69,12 +77,9 @@ export default function Contact() {
           )}
         </section>
 
-        <section id="quote" className={styles.card} aria-labelledby="quote-heading">
-          <h2 id="quote-heading" className={styles.heading}>
-            Get a free quote
-          </h2>
-          <ContactForm />
-        </section>
+        <div className={`${styles.card} ${styles.call}`}>
+          <a href={PHONE_HREF}>{CALL_LABEL}</a>
+        </div>
       </div>
     </>
   );

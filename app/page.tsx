@@ -11,6 +11,7 @@ import { FaqList } from './components/faq/FaqList';
 import { TESTIMONIALS } from './data/testimonials';
 import { FAQS } from './data/faqs';
 import { LocalBusinessJsonLd } from './components/seo/LocalBusinessJsonLd';
+import { CALL_LABEL, PHONE_HREF } from './lib/site';
 import styles from './page.module.css';
 
 export const metadata: Metadata = {
@@ -45,7 +46,7 @@ export default function Home() {
         variant="home"
         title={
           <>
-            We can work on all <span className={styles.underline}>motor</span> vehicles
+            We can work on all <span className={styles.underline}>motor</span> vehicles (no electric)
           </>
         }
         image={{
@@ -87,7 +88,7 @@ export default function Home() {
           items={[
             { label: 'Auto Electrical issues', href: '/auto-electrical-specialists' },
             { label: 'Mechanical problems', href: '/vehicle-mechanical-repairs-servicing' },
-            { label: 'Get a free estimate', href: '/contact#quote' },
+            { label: CALL_LABEL, href: PHONE_HREF },
             { label: 'Air con service', href: '/services' },
             { label: 'Diagnostics', href: '/fault-finding-vehicle-diagnostics' },
           ]}

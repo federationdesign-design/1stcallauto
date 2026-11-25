@@ -1,5 +1,5 @@
-// List with round tick icons, as used in the hero panels ("Get a free
-// estimate") and the service cards. Items can be plain text or links.
+// List with round tick icons, as used in the hero panels ("Please call on
+// 01480 212766") and the service cards. Items can be plain text or links.
 
 import type { CSSProperties } from 'react';
 import Link from 'next/link';
@@ -26,10 +26,14 @@ export function TickList({ items, tone = 'onLight', splitOnDesktop = false, clas
       {items.map((item) => (
         <li key={item.label} className={styles.item}>
           <TickIcon />
-          {item.href ? (
+          {item.href?.startsWith('/') ? (
             <Link href={item.href} className={styles.link}>
               {item.label}
             </Link>
+          ) : item.href ? (
+            <a href={item.href} className={styles.link}>
+              {item.label}
+            </a>
           ) : (
             item.label
           )}

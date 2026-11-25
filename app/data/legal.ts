@@ -46,7 +46,7 @@ export const PRIVACY: LegalPage = {
     },
     {
       heading: 'What data we collect',
-      content: `We may collect and process the following personal data:\n\n• Your name, email address, phone number, vehicle details and message when you send an enquiry or quote request through our website\n• Details you give us by phone, email or WhatsApp, and records of work we carry out on your vehicle\n• If you allow analytics cookies, information about how you use our website, collected by Google Analytics (see our Cookies Policy)\n• Technical information such as your IP address, which our hosting provider records in server logs to keep the website secure and working`,
+      content: `We may collect and process the following personal data:\n\n• Details you give us by phone, email or WhatsApp, and records of work we carry out on your vehicle\n• If you allow analytics cookies, information about how you use our website, collected by Google Analytics (see our Cookies Policy)\n• Technical information such as your IP address, which our hosting provider records in server logs to keep the website secure and working`,
     },
     {
       heading: 'Why we use your data and our legal basis',
@@ -54,7 +54,7 @@ export const PRIVACY: LegalPage = {
     },
     {
       heading: 'Who we share data with',
-      content: `We share your data only where needed to run our website and business:\n\n• Vercel, which hosts our website\n• Resend, which delivers the messages sent through our contact form to our inbox\n• Google, for Google Analytics if you allow analytics cookies, and Google Maps if you choose to load the map\n• WhatsApp (Meta), if you choose to contact us on WhatsApp\n\nSome of these providers may process data outside the UK. Where they do, they rely on safeguards recognised under UK law. We do not sell your personal data to anyone.`,
+      content: `We share your data only where needed to run our website and business:\n\n• Vercel, which hosts our website\n• Google, for Google Analytics if you allow analytics cookies, and Google Maps if you choose to load the map\n• WhatsApp (Meta), if you choose to contact us on WhatsApp\n\nSome of these providers may process data outside the UK. Where they do, they rely on safeguards recognised under UK law. We do not sell your personal data to anyone.`,
     },
     {
       heading: 'How long we keep your data',

@@ -140,3 +140,12 @@ With Steve's Services description applied.
 - **Auto Electrical hero:** reuses the About photo.
 - **Contact email:** `info@1st-call.uk`.
 - **Facebook:** no link.
+
+## Quote form removed (25 November 2026)
+
+Done on `build`: the Contact form, `/api/contact` route, Resend wrapper and `resend` package are gone. Every "Get a free estimate", "Get quote now" and "Get a free quote" link is now "Please call on 01480 212766" (`tel:+441480212766`). The privacy policy no longer mentions the form or Resend. Earlier notes above that mention the quote form or `/contact#quote` are out of date.
+
+Still for Steve:
+- **`.env.example`:** still lists `RESEND_API_KEY` and `NOTIFICATION_EMAIL_FROM` (and possibly `CONTACT_EMAIL_TO`). Nothing reads them now; remove them, and the matching Vercel env vars, when convenient. Not edited by the agent.
+- **Terms & Conditions, "Enquiries and quotes":** still says "Sending an enquiry or quote request through this website does not create a contract." There is no website form now. Suggest rewording, for example "Asking us for an estimate does not create a contract." Not changed, as it was outside the requested edits.
+

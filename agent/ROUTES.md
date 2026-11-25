@@ -21,12 +21,12 @@ Mobile layouts for every page except Home and About follow `agent/MOBILE_PATTERN
 ## Navigation
 
 Header (from the mockups): Home, About Us, Services, Testimonials, Find Us, Contact.
-Footer (from the mockups): Home, About Us, Services, Testimonials, Find Us, Get a free quote, Contact, then Terms & Conditions, Cookies Policy, Privacy Policy.
+Footer (from the mockups): Home, About Us, Services, Testimonials, Find Us, Please call on 01480 212766, Contact, then Terms & Conditions, Cookies Policy, Privacy Policy.
 
 | Item | Target |
 |---|---|
 | Services | `/services`. Desktop: a plain link, no dropdown (Steve, 22 October 2026). Mobile menu: an expandable list of the three specialist pages |
 | Find Us | `/contact#location` |
-| Get a free quote (footer) | `/contact#quote` |
+| Please call on 01480 212766 (footer) | `tel:+441480212766`. Was "Get a free quote" to the form, which was removed (Steve, 25 November 2026) |
 
 These three are runbook defaults, logged in `NEEDS_STEVE.md` for confirmation.

@@ -1,5 +1,7 @@
 // Site navigation. Labels follow the mockups; targets follow agent/ROUTES.md.
 
+import { CALL_LABEL, PHONE_HREF } from '../lib/site';
+
 export type NavItem = {
   label: string;
   href: string;
@@ -27,7 +29,7 @@ export const FOOTER_NAV: NavItem[] = [
   { label: 'Services', href: '/services' },
   { label: 'Testimonials', href: '/testimonials' },
   { label: 'Find Us', href: '/contact#location' },
-  { label: 'Get a free quote', href: '/contact#quote' },
+  { label: CALL_LABEL, href: PHONE_HREF },
   { label: 'Contact', href: '/contact' },
 ];
 

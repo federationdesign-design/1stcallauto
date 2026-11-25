@@ -20,13 +20,17 @@ export function Footer() {
         <ul className={styles.list}>
           {FOOTER_NAV.map((item) => (
             <li key={item.href}>
-              <Link
-                href={item.href}
-                className={isCurrent(item.href, pathname) ? styles.current : undefined}
-                aria-current={isCurrent(item.href, pathname) ? 'page' : undefined}
-              >
-                {item.label}
-              </Link>
+              {item.href.startsWith('/') ? (
+                <Link
+                  href={item.href}
+                  className={isCurrent(item.href, pathname) ? styles.current : undefined}
+                  aria-current={isCurrent(item.href, pathname) ? 'page' : undefined}
+                >
+                  {item.label}
+                </Link>
+              ) : (
+                <a href={item.href}>{item.label}</a>
+              )}
             </li>
           ))}
         </ul>

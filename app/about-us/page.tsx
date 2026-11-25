@@ -11,6 +11,7 @@ import { SpeechBubble } from '../components/testimonials/SpeechBubble';
 import { FaqList } from '../components/faq/FaqList';
 import { TESTIMONIALS } from '../data/testimonials';
 import { FAQS } from '../data/faqs';
+import { CALL_LABEL, PHONE_HREF } from '../lib/site';
 import styles from './page.module.css';
 
 export const metadata: Metadata = {
@@ -49,7 +50,7 @@ export default function AboutUs() {
           repairs to more complex electrical faults, diagnostics and vehicle modifications, we have the knowledge
           and experience to get to the bottom of the problem.
         </p>
-        <TickList tone="onGreen" items={[{ label: 'Get a free estimate', href: '/contact#quote' }]} />
+        <TickList tone="onGreen" items={[{ label: CALL_LABEL, href: PHONE_HREF }]} />
       </Hero>
 
       <div className={styles.body}>
